@@ -1,0 +1,27 @@
+{
+  "name": "daily-sneak-peak-node",
+  "version": "1.0.0",
+  "description": "children activity management app for kindergarten teachers mainly",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MCesarczyk/daily-sneak-peak-node.git"
+  },
+  "keywords": [
+    "kindergarten",
+    "teacher's assistant",
+    "child/group management"
+  ],
+  "author": "Michał Cesarczyk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/MCesarczyk/daily-sneak-peak-node/issues"
+  },
+  "homepage": "https://github.com/MCesarczyk/daily-sneak-peak-node#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
