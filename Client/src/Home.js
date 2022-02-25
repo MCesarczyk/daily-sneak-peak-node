@@ -1,14 +1,8 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios';
+import { useFetchData } from './utils/useFetchData';
+const apiUrl = '/api/welcome';
 
 const Home = () => {
-  const [state, setState] = useState('');
-
-  useEffect(() => {
-    axios.get('/api/welcome')
-      .then(({ data }) => setState(data))
-  }, [])
-
+  const state = useFetchData(apiUrl);
 
   return (
     <div>

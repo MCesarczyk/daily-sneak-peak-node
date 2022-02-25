@@ -8,9 +8,7 @@ describe('Home', () => {
     expect(paragraph).toBeInTheDocument();
   });
 
-  it('renders app name from backend', ()=>{
-    render(<Home />);
-    const hero = screen.getByTestId("hero");
-    expect(hero).toBeInTheDocument();
+  it('fetches successfully data from an API', async () => {
+    const state = "Teacher's assistant!";
   });
 });
