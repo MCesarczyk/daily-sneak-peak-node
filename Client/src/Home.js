@@ -1,4 +1,4 @@
-import { useFetchData } from './utils/useFetchData';
+import { useFetchData } from './useFetchData';
 const apiUrl = '/api/welcome';
 
 const Home = () => {
