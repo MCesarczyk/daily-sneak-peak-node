@@ -4,7 +4,7 @@ import { Normalize } from "styled-normalize";
 import { GlobalStyle } from "./assets/GlobalStyle";
 import { ThemeProvider } from "styled-components";
 import { lightMode } from "./assets/theme";
-import Home from "./Home";
+import Home from "./components/Home";
 
 const App = () => (
   <ThemeProvider theme={lightMode}>
