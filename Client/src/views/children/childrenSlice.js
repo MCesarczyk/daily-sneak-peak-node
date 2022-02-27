@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {children}from "../../assets/mocks/children.js"
 
 const initialState = {
-  children: children,
+  children: {},
 };
 
 const childrenSlice = createSlice({
