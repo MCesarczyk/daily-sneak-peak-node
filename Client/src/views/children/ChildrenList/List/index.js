@@ -5,9 +5,12 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
-import { children } from "../../../../assets/mocks/children.js"
+import { useSelector } from "react-redux";
+import { selectChildren } from "../../childrenSlice";
 
 const ListView = () => {
+  const children = useSelector(selectChildren);
+
   return (
     <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
       {children.length > 0 && children.map(child => (
