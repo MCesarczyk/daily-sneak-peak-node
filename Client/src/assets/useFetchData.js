@@ -6,7 +6,8 @@ export const useFetchData = (apiUrl) => {
 
   const fetchData = () => {
     axios.get(apiUrl)
-      .then(({ data }) => setState(data));
+      .then(({ data }) => setState(data))
+      .catch(error => setState(''));
   };
 
   useEffect(() => {
