@@ -12,7 +12,7 @@ const ListView = () => {
   const children = useSelector(selectChildren);
 
   return (
-    <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
+    <List data-testid="childrenList" sx={{ width: '100%', bgcolor: 'background.paper' }}>
       {children.length > 0 && children.map(child => (
         <ListItem key={child.id}>
           <ListItemAvatar>

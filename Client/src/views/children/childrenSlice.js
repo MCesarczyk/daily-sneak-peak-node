@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  children: {},
+  children: [],
 };
 
 const childrenSlice = createSlice({
