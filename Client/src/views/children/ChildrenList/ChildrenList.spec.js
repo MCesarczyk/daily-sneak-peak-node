@@ -5,14 +5,14 @@ import { children } from "../../../assets/mocks/children";
 import reducer from "../childrenSlice";
 import ChildrenList from ".";
 
-test("Children list renders correctly", () => {
+test("Children list appears in document", () => {
   render(
     <Provider store={store}>
       <ChildrenList />
     </Provider>
   );
 
-  const list = screen.getByTestId("childrenList");
+  const list = screen.getByRole('list');
   expect(list).toBeInTheDocument();
 });
 

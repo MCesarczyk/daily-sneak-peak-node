@@ -4,15 +4,15 @@ exports[`Children reducer should return stored data 1`] = `
 Array [
   Object {
     "created_at": "2022-01-27T08:55:07.942Z",
-    "group": "Oposy",
+    "group": "Monkeys",
     "id": 6,
-    "name": "Ala",
-    "surname": "Rawecka",
+    "name": "Amy",
+    "surname": "Raven",
     "updated_at": "2022-01-27T08:55:07.942Z",
   },
   Object {
     "created_at": "2022-01-24T00:08:16.967Z",
-    "group": "Żabki",
+    "group": "Frogs",
     "id": 1,
     "name": "Jack",
     "surname": "Smith",
@@ -20,7 +20,7 @@ Array [
   },
   Object {
     "created_at": "2022-01-24T00:08:55.735Z",
-    "group": "Krokodylki",
+    "group": "Crocodiles",
     "id": 3,
     "name": "John",
     "surname": "Doe",
@@ -28,7 +28,7 @@ Array [
   },
   Object {
     "created_at": "2022-01-24T00:08:31.474Z",
-    "group": "Krokodylki",
+    "group": "Crocodiles",
     "id": 2,
     "name": "Mary",
     "surname": "Jane",
@@ -36,7 +36,7 @@ Array [
   },
   Object {
     "created_at": "2022-01-24T22:37:07.096Z",
-    "group": "Żabki",
+    "group": "Frogs",
     "id": 4,
     "name": "Peppa",
     "surname": "Pig",
@@ -44,10 +44,10 @@ Array [
   },
   Object {
     "created_at": "2022-01-27T08:52:45.470Z",
-    "group": "Oposy",
+    "group": "Monkeys",
     "id": 5,
-    "name": "Zosia",
-    "surname": "Sebastiańska",
+    "name": "Sophie",
+    "surname": "Moon",
     "updated_at": "2022-01-27T08:52:45.470Z",
   },
 ]
