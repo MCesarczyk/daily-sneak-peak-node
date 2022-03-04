@@ -8,9 +8,9 @@ const handleApiCalls = async (url, params) => {
   return await response.json();
 };
 
-export const getDataFromApi = (url) => handleApiCalls(url, { method: 'get' });
+export const getDataFromApi = url => handleApiCalls(url, { method: 'get' });
 
-export const removeDataFromApi = (url) => handleApiCalls(url, { method: 'delete' });
+export const removeDataFromApi = url => handleApiCalls(url, { method: 'delete' });
 
 export const sendDataToApi = (url, method, data) =>
   handleApiCalls(url,
