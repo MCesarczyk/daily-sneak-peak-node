@@ -6,15 +6,11 @@ import store from "../../../store";
 import { ThemeProvider } from "styled-components";
 import { lightMode } from "../../../assets/theme";
 import Tile from "./Tile";
-import NotFound from "../../../components/NotFound";
 
 const setup = (child) => render(
   <Provider store={store}>
     <ThemeProvider theme={lightMode}>
-      {child
-        ? <Tile child={child} />
-        : <NotFound message="Sorry... no child data found." />
-      }
+    <Tile child={child} />
     </ThemeProvider>
   </Provider>
 );

@@ -9,7 +9,6 @@ import {
   selectChildGotoList
 } from "../childSlice";
 import Tile from "./Tile";
-import NotFound from "../../../components/NotFound";
 
 const ChildData = () => {
   const { id } = useParams();
@@ -34,12 +33,7 @@ const ChildData = () => {
   }, []);
 
   return (
-    <>
-      {child
-        ? <Tile child={child} />
-        : <NotFound message="Sorry... no child data found." />
-      }
-    </>
+    <Tile child={child} />
   );
 };
 
