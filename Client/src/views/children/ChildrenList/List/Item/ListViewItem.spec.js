@@ -1,11 +1,10 @@
 import { render } from "@testing-library/react";
-// import { renderer } from "react-test-renderer";
 import { BrowserRouter } from "react-router-dom";
 import ListViewItem from ".";
-import { children } from "../../../../../assets/mocks/children";
+import mock from "../../../../../assets/mocks/children.json";
 
 const setup = (id) => {
-  const child = children[id];
+  const child = mock[id];
 
   const item = render(
     <BrowserRouter>
@@ -34,7 +33,7 @@ test("ListViewItem should get link to single child view (middle)", () => {
 });
 
 test("ListViewItem should get link to single child view (last on list)", () => {
-  const fullName = setup(children.length-1).getByText(/Sophie Moon/);
+  const fullName = setup(mock.length-1).getByText(/Sophie Moon/);
   expect(fullName).toBeInTheDocument();
   expect(fullName.closest('a')).toHaveAttribute('href', '/children/5')
 });

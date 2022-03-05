@@ -7,6 +7,17 @@ import reducer from "../childrenSlice";
 import ChildrenList from ".";
 import ListView from "./List";
 
+test("Children reducer should return initial state", () => {
+  expect(reducer(undefined, {})).toEqual({
+    children: []
+  });
+});
+
+test("Children reducer should return stored data", () => {
+  const previousState = mock;
+  expect(reducer(previousState, {})).toMatchSnapshot();
+});
+
 test("Children list appears in document", () => {
   render(
     <Provider store={store}>
@@ -42,15 +53,4 @@ test("Children list should render mocked data", () => {
   groupNames.forEach(
     (name, index) => expect(name.closest('p').innerHTML).toEqual(`Group: ${mock[index].group}`)
   );
-});
-
-test("Children reducer should return initial state", () => {
-  expect(reducer(undefined, {})).toEqual({
-    "children": []
-  });
-});
-
-test("Children reducer should return stored data", () => {
-  const previousState = mock;
-  expect(reducer(previousState, {})).toMatchSnapshot();
 });

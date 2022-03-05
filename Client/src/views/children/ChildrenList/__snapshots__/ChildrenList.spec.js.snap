@@ -12,7 +12,7 @@ Array [
   },
   Object {
     "created_at": "2022-01-24T00:08:16.967Z",
-    "group": "Frogs",
+    "group": "Froggies",
     "id": 1,
     "name": "Jack",
     "surname": "Smith",
@@ -36,7 +36,7 @@ Array [
   },
   Object {
     "created_at": "2022-01-24T22:37:07.096Z",
-    "group": "Frogs",
+    "group": "Froggies",
     "id": 4,
     "name": "Peppa",
     "surname": "Pig",
