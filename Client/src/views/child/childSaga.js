@@ -13,7 +13,7 @@ function* fetchChildDataHandler() {
     const url = `../api/get/children/${id}`;
     const response = yield call(getDataFromApi, url);
     const data = yield response;
-    yield put(setChildData(data));
+    yield put(setChildData(data[0]));
   } catch (error) {
     yield call(console.error, error.message);
   }

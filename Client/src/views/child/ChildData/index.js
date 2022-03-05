@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import { clearChildData, fetchChildData, selectChildGotoList } from "../childSlice";
+import Tile from "./Tile";
 
 const ChildData = () => {
   const { id } = useParams();
@@ -27,7 +28,7 @@ const ChildData = () => {
   }, []);
 
   return (
-    <p>CHILD no {id} succesfully stored in Redux</p>
+    <Tile />
   );
 };
 
