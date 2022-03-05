@@ -2,16 +2,22 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
-import { clearChildData, fetchChildData, selectChildGotoList } from "../childSlice";
+import {
+  clearChildData,
+  fetchChildData,
+  selectChildData,
+  selectChildGotoList
+} from "../childSlice";
 import Tile from "./Tile";
+import NotFound from "../../../components/NotFound";
 
 const ChildData = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const child = useSelector(selectChildData);
   const gotoList = useSelector(selectChildGotoList);
-  console.log("childData connected");
 
   useEffect(() => {
     if (gotoList === true) {
@@ -28,7 +34,12 @@ const ChildData = () => {
   }, []);
 
   return (
-    <Tile />
+    <>
+      {child
+        ? <Tile child={child} />
+        : <NotFound message="Sorry... no child data found." />
+      }
+    </>
   );
 };
 

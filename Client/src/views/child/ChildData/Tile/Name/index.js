@@ -12,7 +12,7 @@ const Name = ({ name, group }) => (
     </Space>
     <Space>
       <Label size={0.75}>group: </Label>
-      <SubTitle>{group}</SubTitle>
+      <SubTitle role="subheading">{group}</SubTitle>
     </Space>
     <Divider />
   </TitleFieldset>

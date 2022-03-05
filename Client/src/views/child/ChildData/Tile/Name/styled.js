@@ -14,7 +14,7 @@ export const Title = styled.h2`
     margin-top: 0;
 `;
 
-export const SubTitle = styled.span`
+export const SubTitle = styled.h4`
     color: ${({ theme }) => theme.color.secondaryText};
     font-weight: 500; 
     font-size: 1.5rem;
