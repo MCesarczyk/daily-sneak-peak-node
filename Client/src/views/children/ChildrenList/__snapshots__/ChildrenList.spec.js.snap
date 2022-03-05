@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Children reducer should return stored data 1`] = `
+exports[`Children reducer should return mocked data 1`] = `
 Array [
   Object {
     "created_at": "2022-01-27T08:55:07.942Z",

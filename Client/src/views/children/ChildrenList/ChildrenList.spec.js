@@ -13,7 +13,7 @@ test("Children reducer should return initial state", () => {
   });
 });
 
-test("Children reducer should return stored data", () => {
+test("Children reducer should return mocked data", () => {
   const previousState = mock;
   expect(reducer(previousState, {})).toMatchSnapshot();
 });
