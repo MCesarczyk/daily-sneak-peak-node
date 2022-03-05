@@ -14,4 +14,14 @@ router.get('/api/get/children', (req, res, next) => {
     })
 })
 
+router.get('/api/get/children/:id', (req, res, next) => {
+  const child_id = req.params.id
+
+  pool.query(`SELECT * FROM children
+              WHERE id=$1`,
+    [child_id], (q_err, q_res) => {
+      res.json(q_res.rows)
+    })
+})
+
 module.exports = router
