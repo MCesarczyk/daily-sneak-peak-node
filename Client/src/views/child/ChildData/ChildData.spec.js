@@ -10,7 +10,7 @@ import Tile from "./Tile";
 const setup = (child) => render(
   <Provider store={store}>
     <ThemeProvider theme={lightMode}>
-    <Tile child={child} />
+      <Tile child={child} />
     </ThemeProvider>
   </Provider>
 );

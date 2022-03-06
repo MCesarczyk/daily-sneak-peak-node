@@ -3,34 +3,38 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import store from "../../../store";
 import mock from "../../../assets/mocks/children.json";
-import reducer from "../childrenSlice";
-import ChildrenList from ".";
 import ListView from "./List";
 
-test("Children reducer should return initial state", () => {
-  expect(reducer(undefined, {})).toEqual({
-    children: []
-  });
+test("Children list should render spinner during loading", () => {
+  render(
+    <ListView childrenList={{}} state="loading" />
+  );
+
+  const loader = screen.queryByText(/Loading/);
+  expect(loader).toBeInTheDocument();
 });
 
-test("Children reducer should return mocked data", () => {
-  const previousState = mock;
-  expect(reducer(previousState, {})).toMatchSnapshot();
+test("Children list should be empty in idle state", () => {
+  const { container } = render(
+    <ListView childrenList={{}} state="idle" />
+  );
+
+  expect(container.firstChild).toBeNull();
 });
 
-test("Children list appears in document", () => {
+test("Children list appears in document after delay", () => {
   render(
     <Provider store={store}>
-      <ChildrenList />
+      <ListView childrenList={{}} state="success" />
     </Provider>
   );
 
-  const list = screen.getByRole('list');
+  const list = screen.queryByRole('list');
   expect(list).toBeInTheDocument();
 });
 
 test("Empty list shouldn't render at all", () => {
-  render(<ListView children={[]} />);
+  render(<ListView childrenList={[]} state="success" />);
 
   const list = screen.getByRole('list');
   expect(list.firstChild).toBeNull();
@@ -39,7 +43,7 @@ test("Empty list shouldn't render at all", () => {
 test("Children list should render mocked data", () => {
   render(
     <BrowserRouter>
-      <ListView children={mock} />
+      <ListView childrenList={mock} state="success" />
     </BrowserRouter>
   );
 
