@@ -1,17 +1,14 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { postChildData, selectChildData, updateChildData } from "../../../child/childSlice";
-import { selectDialogOpen, selectDialogType } from "../../dialogSlice";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import { postChildData } from "../../../child/childSlice";
+import {  selectDialogType } from "../../dialogSlice";
 import { groups } from "../../../../assets/fixtures";
 import { MenuItem, TextField, Typography } from "@mui/material";
 import DialogPopupFooter from "../Footer";
 import { List, ListItem } from "./styled";
 
 const ChildForm = () => {
-  const dispatch = useDispatch();
-  const apiData = useSelector(selectChildData);
   const type = useSelector(selectDialogType);
-  const open = useSelector(selectDialogOpen);
 
   const [child, setChild] = useState({});
 
@@ -34,23 +31,6 @@ const ChildForm = () => {
       ...child,
       group: target.value,
     });
-  };
-
-  const fetchApiChild = () => {
-    if (Object.keys(apiData).length > 0) {
-      setChild(apiData);
-    }
-  };
-
-  useEffect(() => {
-    if (type === 'edit') {
-      fetchApiChild();
-    }
-  }, [type, open, apiData]);
-
-  const onFinish = () => {
-    type === 'add' && dispatch(postChildData(child));
-    type === 'edit' && dispatch(updateChildData(child));
   };
 
   return (
@@ -100,7 +80,7 @@ const ChildForm = () => {
           </TextField>
         </ListItem>
       </List >
-      <DialogPopupFooter onFinish={onFinish} />
+      <DialogPopupFooter />
     </>
   );
 };
