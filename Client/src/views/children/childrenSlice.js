@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   children: [],
+  state: 'idle'
 };
 
 const childrenSlice = createSlice({
@@ -14,6 +15,9 @@ const childrenSlice = createSlice({
     },
     reloadChildrenList: () => initialState,
     clearChildrenList: () => initialState,
+    setChildrenState: (state, {payload: newState}) => {
+      state.state = newState;
+    }
   },
 });
 
@@ -22,8 +26,11 @@ export const {
   setChildrenList,
   reloadChildrenList,
   clearChildrenList,
+  setChildrenState
 } = childrenSlice.actions;
 
-export const selectChildren = state => state.children.children;
+const selectChildren = state => state.children;
+export const selectChildrenList = state => selectChildren(state).children;
+export const selectChildrenState = state => selectChildren(state).state;
 
 export default childrenSlice.reducer;

@@ -1,13 +1,13 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector } from "react-redux";
-import { selectChildren } from "../childrenSlice";
+import { selectChildrenList, selectChildrenState } from "../childrenSlice";
 import { useDispatch } from 'react-redux';
 import { clearChildrenList, fetchChildrenList } from '../childrenSlice';
-import { Space } from '../../../components/Space';
 import ListView from './List';
 
 const ChildrenList = () => {
-  const children = useSelector(selectChildren);
+  const childrenList = useSelector(selectChildrenList);
+  const state = useSelector(selectChildrenState);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -19,15 +19,11 @@ const ChildrenList = () => {
   }, []);
 
   return (
-    <Space>
-      <ListView children={children}/>
-      <Space
-        vertical
-        justify="start"
-      >
-      </Space>
-    </Space>
-  );
+    <ListView
+      state={state}
+      childrenList={childrenList}
+    />
+  )
 };
 
 export default ChildrenList;
