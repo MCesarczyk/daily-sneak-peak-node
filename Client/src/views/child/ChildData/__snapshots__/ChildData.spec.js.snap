@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Child reducer should return mocked data 1`] = `
+Object {
+  "created_at": "2022-01-24T00:08:31.474Z",
+  "group": "Crocodiles",
+  "id": 2,
+  "name": "Mary",
+  "surname": "Jane",
+  "updated_at": "2022-01-24T00:08:31.474Z",
+}
+`;
