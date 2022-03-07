@@ -24,4 +24,16 @@ router.get('/api/get/children/:id', (req, res, next) => {
     })
 })
 
+router.post('/api/post/childtodb', (req, res, next) => {
+  const values = [ req.body.name,
+                   req.body.surname,
+                   req.body.group ]
+                   console.log(values);
+  pool.query('INSERT INTO children (name, surname, "group", created_at, updated_at) VALUES ($1, $2, $3, NOW(), NOW())',
+              values, (q_err, q_res) => {
+                if(q_err) return next(q_err);
+                res.json(q_res.rows)
+              })
+})
+
 module.exports = router
