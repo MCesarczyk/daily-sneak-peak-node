@@ -5,3 +5,22 @@ export const groups = [
   { id: 4, label: "Slothies" },
   { id: 5, label: "Monkeys" }
 ];
+
+export const modal = {
+  add: {
+    buttonText: "Add+",
+    title: "Add new child"
+  },
+  edit: {
+    buttonText: "Edit",
+    title: "Edit child"
+  },
+  addDetails: {
+    buttonText: "Add+",
+    title: "Add daily activities"
+  },
+  editDetails: {
+    buttonText: "Edit",
+    title: "Edit activities"
+  }
+}

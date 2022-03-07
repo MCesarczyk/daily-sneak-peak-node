@@ -10,6 +10,7 @@ import CloseIcon from '@mui/icons-material/Close';
 import ChildForm from "./ChildForm";
 import { Space } from "../../../components/Space";
 import { Dialog } from "./styled";
+import { modal } from "../../../assets/fixtures";
 
 const DialogPopup = ({ form }) => {
   const dispatch = useDispatch();
@@ -28,16 +29,17 @@ const DialogPopup = ({ form }) => {
   return (
     <>
       <Button onClick={handleOpen}>
-        {form === "add" && "Add+"}
+        {modal[form]?.buttonText}
       </Button>
 
       <Modal
         open={open}
+        role="dialog"
       >
         <Dialog>
           <Space justify="space-between" >
             <Typography id="modal-title" variant="h6" component="h2">
-              {type === "add" && "Add new child"}
+              {modal[form]?.title}
             </Typography>
             <Button onClick={handleClose} >
               <CloseIcon />
