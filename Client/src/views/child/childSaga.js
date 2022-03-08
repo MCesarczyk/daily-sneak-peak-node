@@ -1,5 +1,5 @@
 import { call, put, select, takeLatest } from "redux-saga/effects";
-import { CHILDREN_LIST_URL, CHILD_POST_URL } from "../../assets/links";
+import { CHILDREN_LIST_URL, CHILD_POST_URL, CHILD_UPDATE_URL } from "../../assets/links";
 import { getDataFromApi, removeDataFromApi, sendDataToApi } from "../../assets/utils/handleApiCalls";
 import { reloadChildrenList } from "../children/childrenSlice";
 import { setDialogClosed } from "../dialog/dialogSlice";
@@ -40,7 +40,7 @@ function* postChildDataHandler() {
 
 function* updateChildDataHandler() {
   const id = yield select(selectChildId);
-  const url = `../api/v1/children/${id}`;
+  const url = `${CHILD_UPDATE_URL}/${id}`;
   const method = "put";
   yield call(dispatchChildDataHandler, url, method);
 };

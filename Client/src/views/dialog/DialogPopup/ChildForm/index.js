@@ -56,6 +56,7 @@ const ChildForm = () => {
 
   const onFinish = () => {
     type === 'add' && dispatch(postChildData(child));
+    type === 'edit' && dispatch(updateChildData(child));
   };
 
   return (
