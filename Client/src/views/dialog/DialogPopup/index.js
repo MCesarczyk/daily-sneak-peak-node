@@ -48,6 +48,9 @@ const DialogPopup = ({ form }) => {
           {type === 'add' &&
             <ChildForm />
           }
+          {type === 'edit' &&
+            <ChildForm />
+          }
         </Dialog>
       </Modal>
     </>

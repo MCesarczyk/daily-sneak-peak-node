@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { postChildData } from "../../../child/childSlice";
-import { selectDialogType } from "../../dialogSlice";
+import { postChildData, selectChildData, updateChildData } from "../../../child/childSlice";
+import { selectDialogOpen, selectDialogType } from "../../dialogSlice";
 import { groups } from "../../../../assets/fixtures";
 import { Typography } from "@mui/material";
 import DialogPopupFooter from "../Footer";
@@ -11,7 +11,9 @@ import Select from "../../../../components/Select";
 
 const ChildForm = () => {
   const dispatch = useDispatch();
+  const apiData = useSelector(selectChildData);
   const type = useSelector(selectDialogType);
+  const open = useSelector(selectDialogOpen);
 
   const [child, setChild] = useState({
     name: '',
@@ -39,6 +41,18 @@ const ChildForm = () => {
       group: target.value,
     });
   };
+
+  const fetchApiChild = () => {
+    if (Object.keys(apiData).length > 0) {
+      setChild(apiData);
+    }
+  };
+
+  useEffect(() => {
+    if (type === 'edit') {
+      fetchApiChild();
+    }
+  }, [type, open, apiData]);
 
   const onFinish = () => {
     type === 'add' && dispatch(postChildData(child));
