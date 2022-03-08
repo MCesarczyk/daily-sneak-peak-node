@@ -1,16 +1,23 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { postChildData } from "../../../child/childSlice";
-import {  selectDialogType } from "../../dialogSlice";
+import { selectDialogType } from "../../dialogSlice";
 import { groups } from "../../../../assets/fixtures";
-import { MenuItem, TextField, Typography } from "@mui/material";
+import { Typography } from "@mui/material";
 import DialogPopupFooter from "../Footer";
 import { List, ListItem } from "./styled";
+import Input from "../../../../components/Input";
+import Select from "../../../../components/Select";
 
 const ChildForm = () => {
+  const dispatch = useDispatch();
   const type = useSelector(selectDialogType);
 
-  const [child, setChild] = useState({});
+  const [child, setChild] = useState({
+    name: '',
+    surname: '',
+    group: ''
+  });
 
   const onFirstChange = ({ target }) => {
     setChild({
@@ -33,6 +40,10 @@ const ChildForm = () => {
     });
   };
 
+  const onFinish = () => {
+    type === 'add' && dispatch(postChildData(child));
+  };
+
   return (
     <>
       <List>
@@ -42,45 +53,28 @@ const ChildForm = () => {
           </Typography>
         </ListItem>
         <ListItem>
-          <TextField
-            required
+          <Input
             id="firstName"
             label="First name"
             value={child.name || ''}
             onChange={onFirstChange}
-            size="small"
-            margin="dense"
-            sx={{ width: "14rem", px: 1 }}
           />
-          <TextField
-            required
+          <Input
             id="lastName"
             label="Last name"
             value={child.surname || ''}
             onChange={onLastChange}
-            size="small"
-            margin="dense"
-            sx={{ width: "14rem", px: 1 }}
           />
-          <TextField
+          <Select
             id="group"
-            select
             label="Group"
             value={child.group || ''}
+            options={groups}
             onChange={onGroupChange}
-            size="small"
-            margin="dense"
-            sx={{ width: "14rem", px: 1 }}
-          >
-            {groups.map(group => (
-              <MenuItem key={group.id} value={group.label}>
-                {group.label}
-              </MenuItem>
-            ))}
-          </TextField>
+          />
         </ListItem>
       </List >
-      <DialogPopupFooter />
+      <DialogPopupFooter onFinish={onFinish} />
     </>
   );
 };
