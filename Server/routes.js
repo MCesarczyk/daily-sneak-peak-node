@@ -49,4 +49,14 @@ router.put('/api/put/children/:id', (req, res, next) => {
                 })
 })
 
+router.delete('/api/delete/children/:id', (req, res, next) => {
+  const child_id = req.params.id
+
+  pool.query(`DELETE FROM children WHERE id = $1`,
+              [ child_id ], (q_err, q_res) => {
+                res.json(q_res.rows)
+                console.log(q_err)
+              })
+})
+
 module.exports = router
