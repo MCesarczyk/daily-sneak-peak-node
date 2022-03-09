@@ -2,6 +2,7 @@ import List from '@mui/material/List';
 import ListViewItem from './Item';
 import { Space } from '../../../../components/Space';
 import Loader from '../../../../components/Loader';
+import DialogPopup from '../../../dialog/DialogPopup';
 
 const ListView = ({ state, childrenList }) => (
   <Loader
@@ -21,6 +22,10 @@ const ListView = ({ state, childrenList }) => (
         vertical
         justify="start"
       >
+        <DialogPopup
+          form='add'
+          buttonLabel="Add+"
+        />
       </Space>
     </Space>
   </Loader>

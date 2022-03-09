@@ -34,7 +34,11 @@ test("Children list appears in document after delay", () => {
 });
 
 test("Empty list shouldn't render at all", () => {
-  render(<ListView childrenList={[]} state="success" />);
+  render(
+    <Provider store={store}>
+      <ListView childrenList={[]} state="success" />
+    </Provider>
+  );
 
   const list = screen.getByRole('list');
   expect(list.firstChild).toBeNull();
@@ -42,9 +46,11 @@ test("Empty list shouldn't render at all", () => {
 
 test("Children list should render mocked data", () => {
   render(
-    <BrowserRouter>
-      <ListView childrenList={mock} state="success" />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <ListView childrenList={mock} state="success" />
+      </BrowserRouter>
+    </Provider>
   );
 
   const list = screen.getByRole('list');
