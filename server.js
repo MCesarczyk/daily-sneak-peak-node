@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
   require('dotenv').config();
 }
 
-var app = require('../main/app');
+var app = require('./app');
 var debug = require('debug')('server:server');
 var http = require('http');
 
