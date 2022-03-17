@@ -4,7 +4,7 @@ const path = require('path');
 const port = '4000';
 
 client.use(express.static(path.join(__dirname, 'build')));
-client.get('/', function (req, res) {
+client.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, 'build', 'index.html'))
 });
 client.listen(port, () => {
