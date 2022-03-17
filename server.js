@@ -1,8 +1,5 @@
 #!/usr/bin/env node
-
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config();
-}
+require('dotenv').config();
 
 var app = require('./app');
 var debug = require('debug')('server:server');
