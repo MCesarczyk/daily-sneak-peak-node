@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 require('dotenv').config();
+require('./.initialize.js');
 
 var app = require('./app');
 var debug = require('debug')('server:server');
@@ -13,7 +14,7 @@ var server = http.createServer(app);
 server.listen(port);
 server.on('error', onError);
 server.on('listening', onListening);
-console.log(`Server is listening on port: ${process.env.DAILY_SNEAK_PEAK_BACKEND_PORT}`);
+console.log(`Server on ${process.env.NODE_ENV} is listening on port: ${process.env.DAILY_SNEAK_PEAK_BACKEND_PORT}`);
 console.log(`Current db user: ${process.env.DAILY_SNEAK_PEAK_DB_USER}`);
 
 function normalizePort(val) {
