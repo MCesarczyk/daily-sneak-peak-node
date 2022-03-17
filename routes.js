@@ -2,6 +2,11 @@ var express = require('express')
 var router = express.Router()
 var { pool } = require('./db')
 
+router.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
 router.get('/api/title', (req, res) => {
   res.json("Teacher's assistant")
 })
