@@ -1,4 +1,4 @@
-const apiUrl = 'http://164.92.135.59:5000'
+const apiUrl = process.env.NODE_ENV === 'production' ? 'http://164.92.135.59:5000' : '';
 
 export const TITLE_URL = `${apiUrl}/api/title`;
 export const CHILDREN_LIST_URL = `${apiUrl}/api/get/children`;
