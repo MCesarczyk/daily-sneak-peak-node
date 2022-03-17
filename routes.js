@@ -3,7 +3,9 @@ var router = express.Router()
 var { pool } = require('./db')
 
 router.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Origin', 'http://164.92.135.59:4000');
+  res.header('Access-Control-Allow-Methods', 'POST, PUT, GET, OPTIONS');
+  res.header('Access-Control-Allow-Headers', '*');
   next();
 });
 
