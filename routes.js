@@ -1,6 +1,9 @@
 var express = require('express')
 var router = express.Router()
 var { pool } = require('./db')
+var cors = require('cors')
+
+router.use(cors())
 
 router.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:4000');
