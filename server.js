@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 require('dotenv').config();
-require('./.initialize.js');
 
 var app = require('./app');
 var debug = require('debug')('server:server');
