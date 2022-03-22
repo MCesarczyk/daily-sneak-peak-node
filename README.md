@@ -8,7 +8,7 @@ npm install
 ```
 in root folder.
 
-3. Create `.env` file by copying `.env.template`.
+1. Create `.env` file by copying `.env.template`.
 2. Setup database.
    1. Install PostgreSQL globally using method of choice, depending on your system.
 
@@ -16,19 +16,19 @@ in root folder.
    3. Create user.
    4. Crease database for development and production.
    5. Give new user permissions to database.
-   6. Write down credentials into `.env` file.
+   6. Write down credentials and also database name into `.env` file.
    7. You can manage your database and its settings using one of many apps to manage SQL db, ie: \
    *[pgAdmin](https://www.pgadmin.org/), [TablePlus](https://tableplus.com/)*
-1. Run 
+3. Run 
     ```
     npm run devstart
     ```
     The server will start on [*http://localhost:5000*](http://localhost:5000)
 
-2. Check backend operation (GET, POST, PUT) by invoking testing functions from `/utils` folder.\
+4. Check backend operation (GET, POST, PUT) by invoking testing functions from `/utils` folder.\
    You can also check RestAPI operation using `curl` in console or using tools like: *[Postman](https://www.postman.com/), [Insomnia](https://insomnia.rest/)*
 
-3. If you need API only to use with your own frontend, just end here, remove `Frontend` directory and deploy the app.
+5. If you need API only to use with your own frontend, just end here, remove `Frontend` directory and deploy the app.
 
 ____
 ## Frontend setup:
