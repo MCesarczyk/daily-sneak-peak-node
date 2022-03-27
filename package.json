@@ -6,6 +6,7 @@
     "devstart": "nodemon ./server.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.1098.0",
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",

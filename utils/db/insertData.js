@@ -1,4 +1,4 @@
-const { pool } = require("../db");
+const { pool } = require("../../db");
 
 async function insertData() {
   const [name, surname, group] = process.argv.slice(2);
