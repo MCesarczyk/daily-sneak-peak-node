@@ -1,7 +1,7 @@
 /*** Add avatar column to children ***/
 
 ALTER TABLE "children"
-  ADD COLUMN avatar character(50) ;
+  ADD COLUMN avatar VARCHAR;
 
 UPDATE "children" SET avatar = '';
 

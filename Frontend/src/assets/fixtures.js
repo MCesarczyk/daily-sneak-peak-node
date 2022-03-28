@@ -1,5 +1,5 @@
 export const groups = [
-  { id: 1, label: "Cangaroos" },
+  { id: 1, label: "Kangaroos" },
   { id: 2, label: "Froggies" },
   { id: 3, label: "Crocodiles" },
   { id: 4, label: "Slothies" },

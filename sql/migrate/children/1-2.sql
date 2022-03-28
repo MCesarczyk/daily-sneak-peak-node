@@ -3,9 +3,9 @@
 CREATE TABLE "children"
 (
     id serial,
-    "name" character(20) NOT NULL,
-    surname character(24) NOT NULL,
-    "group" character(20) NOT NULL,
+    "name" VARCHAR NOT NULL,
+    surname VARCHAR NOT NULL,
+    "group" VARCHAR NOT NULL,
     created_at timestamp(6) without time zone NOT NULL,
     updated_at timestamp(6) without time zone NOT NULL
 )
