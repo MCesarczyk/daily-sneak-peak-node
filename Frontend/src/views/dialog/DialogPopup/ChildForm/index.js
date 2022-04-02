@@ -13,7 +13,8 @@ const ChildForm = () => {
   const [child, setChild] = useState({
     name: '',
     surname: '',
-    group: ''
+    group: '',
+    avatar: ''
   });
 
   const fetchApiChild = () => {
