@@ -11,7 +11,7 @@ const Tile = ({ child }) => (
     {!child
       ? <NotFound message="Sorry... no child data found." />
       : <StyledTile data-testid="child-tile">
-        <Image />
+        <Image child={child} />
         {child && Object.entries(child).length === 0 ?
           <>
             <Skeleton height={42} />

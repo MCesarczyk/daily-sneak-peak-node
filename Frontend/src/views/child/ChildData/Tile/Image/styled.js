@@ -1,15 +1,19 @@
 import styled from "styled-components";
 
-export const ImageWrapper = styled.div`
+export const ImageOuterWrapper = styled.div`
   grid-area: image;
   width: 10rem;
+
+  @media(max-width: ${({ theme }) => theme.breakpoint.sm}) {
+    width: 16rem;
+  }
+`;
+
+export const ImageWrapper = styled.div`
+  width: 100%;
   display: block;
   overflow: hidden;
   aspect-ratio: 2/3;
-
-  @media(max-width: ${({theme})=>theme.breakpoint.sm}) {
-    width: 16rem;
-  }
 `;
 
 export const StyledImage = styled.img`

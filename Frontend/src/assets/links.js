@@ -5,3 +5,4 @@ export const CHILDREN_LIST_URL = `${apiUrl}/api/get/children`;
 export const CHILD_POST_URL = `${apiUrl}/api/post/childtodb`;
 export const CHILD_UPDATE_URL = `${apiUrl}/api/put/children`;
 export const CHILD_DELETE_URL = `${apiUrl}/api/delete/children`;
+export const FILE_DOWNLOAD_URL = `${apiUrl}/api/get/fileUrl`;

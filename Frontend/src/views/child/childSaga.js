@@ -1,6 +1,4 @@
 import { call, put, select, takeLatest } from "redux-saga/effects";
-import { CHILDREN_LIST_URL, CHILD_DELETE_URL, CHILD_POST_URL, CHILD_UPDATE_URL } from "../../assets/links";
-import { getDataFromApi, removeDataFromApi, sendDataToApi } from "../../assets/utils/handleApiCalls";
 import { reloadChildrenList } from "../children/childrenSlice";
 import { setDialogClosed } from "../dialog/dialogSlice";
 import {
@@ -8,6 +6,16 @@ import {
   selectChildId, postChildData, updateChildData, deleteChildData,
   returnToChildrenList,
 } from "./childSlice";
+import {
+  getDataFromApi, removeDataFromApi, sendDataToApi
+} from "../../assets/utils/handleApiCalls";
+import {
+  CHILDREN_LIST_URL,
+  CHILD_DELETE_URL,
+  CHILD_POST_URL,
+  CHILD_UPDATE_URL,
+  FILE_DOWNLOAD_URL
+} from "../../assets/links";
 
 function* fetchChildDataHandler() {
   try {
@@ -16,6 +24,8 @@ function* fetchChildDataHandler() {
     const response = yield call(getDataFromApi, url);
     const data = yield response;
     yield put(setChildData(data[0]));
+    const avatarUrl = yield `${FILE_DOWNLOAD_URL}/${data[0].avatar}`;
+    yield put(setChildData({ ...data[0], avatarUrl: avatarUrl }));
   } catch (error) {
     yield call(console.error, error.message);
   }
