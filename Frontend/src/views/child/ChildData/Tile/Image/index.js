@@ -1,20 +1,13 @@
-import FileUpload from "../../../../../features/FileUpload";
 import { NoPicture } from "./NoPicture";
 import { ImageOuterWrapper, ImageWrapper } from "./styled";
-import { useFetchData } from "../../../../../assets/utils/useFetchData";
+import Portrait from "./Portrait";
 
-const Image = ({ child }) => {
-  const picture = useFetchData(child?.avatarUrl);
-
-  return (
-    <ImageOuterWrapper>
-      <ImageWrapper>
-        {child?.avatarUrl ? <img src={picture} /> : <NoPicture />}
-      </ImageWrapper>
-      <FileUpload id={child?.id} />
-    </ImageOuterWrapper>
-
-  )
-};
+const Image = ({ child }) => (
+  <ImageOuterWrapper>
+    <ImageWrapper>
+      {child?.avatarUrl ? <NoPicture /> : <Portrait child={child} />}
+    </ImageWrapper>
+  </ImageOuterWrapper>
+);
 
 export default Image;

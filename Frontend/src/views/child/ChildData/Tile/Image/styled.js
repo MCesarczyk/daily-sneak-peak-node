@@ -16,12 +16,6 @@ export const ImageWrapper = styled.div`
   aspect-ratio: 2/3;
 `;
 
-export const StyledImage = styled.img`
-  width: 100%;
-  display: block;
-  border-radius: 5px;
-`;
-
 export const PlaceholderImage = styled.div`
   width: 100%;
   flex-grow: 0;
