@@ -1,8 +1,8 @@
-var AWS = require('aws-sdk');
-var s3 = new AWS.S3();
+const AWS = require('aws-sdk');
+const s3 = new AWS.S3();
 
 s3.getObject(
-  { Bucket: "mcesarcz-daily-sneak-peak-storage", Key: "test.txt" },
+  { Bucket: "mcesarcz-daily-sneak-peak-storage", Key: "1648740066019" },
   (err, data) => {
     if (err != null) {
       console.log("Failed to retrieve an object: " + err);

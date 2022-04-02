@@ -1,8 +1,8 @@
-var AWS = require('aws-sdk');
+const AWS = require('aws-sdk');
 
-s3 = new AWS.S3({ apiVersion: '2006-03-01' });
+const s3 = new AWS.S3({ apiVersion: '2006-03-01' });
 
-var bucketParams = {
+const bucketParams = {
   Bucket: 'mcesarcz-daily-sneak-peak-storage',
 };
 
