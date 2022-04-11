@@ -1,7 +1,8 @@
 import React from 'react';
+import { Button } from '@mui/material';
 import AvatarEditor from 'react-avatar-editor';
 import { AVATAR_UPLOAD_URL } from '../../assets/links';
-import { ButtonsWrapper, UploaderWrapper } from './styled';
+import { ButtonsWrapper, FileInput, UploaderWrapper } from './styled';
 
 class AvatarUploader extends React.Component {
   state = {
@@ -27,7 +28,8 @@ class AvatarUploader extends React.Component {
     }
   }
 
-  setEditorRef = (editor) => (this.editor = editor)
+  setEditorRef = (editor) => (this.editor = editor);
+  setInputRef = (input) => (this.input = input);
 
   render() {
     return (
@@ -43,12 +45,14 @@ class AvatarUploader extends React.Component {
             rotate={0}
           />
           <ButtonsWrapper>
-            <input
+            <FileInput
+              ref={this.setInputRef}
               name="file"
               type="file"
               onChange={(e) => this.setState({ image: e.target.files[0] })}
             />
-            <button onClick={this.onImageSave}>SAVE</button>
+            <Button onClick={() => this.input.click()}>SELECT FILE</Button>
+            <Button onClick={this.onImageSave}>UPLOAD</Button>
           </ButtonsWrapper>
         </div>
       </UploaderWrapper>
@@ -57,3 +61,16 @@ class AvatarUploader extends React.Component {
 }
 
 export default AvatarUploader;
+
+{/* <Input
+        ref={uploadRef}
+        onChange={e => { onChange([...e.target.files]) }}
+        type="file"
+        fileUploader
+        multiple
+      />
+      <Button 
+        round
+        fileUploader
+        onClick={() => uploadRef.current.click()}
+      ></Button> */}
