@@ -1,9 +1,10 @@
 import { Typography } from "@mui/material";
 import { groups } from "../../../../../assets/fixtures";
 import DialogPopupFooter from "../../Footer";
-import { List, ListItem } from "./styled";
+import { Fieldset, List, ListItem } from "./styled";
 import Input from "../../../../../components/Input";
 import Select from "../../../../../components/Select";
+import AvatarUploader from "../../../../../features/AvatarUploader";
 
 const ChildFormFieldset = ({ title, child, setChild, onFinish }) => {
   const onFirstChange = ({ target }) => {
@@ -29,34 +30,41 @@ const ChildFormFieldset = ({ title, child, setChild, onFinish }) => {
 
   return (
     <>
-      <List>
-        <ListItem>
-          <Typography variant="body2" id="modal-description" sx={{ mt: 2 }}>
-            {title}
-          </Typography>
-        </ListItem>
-        <ListItem>
-          <Input
-            id="firstName"
-            label="First name"
-            value={child.name || ''}
-            onChange={onFirstChange}
-          />
-          <Input
-            id="lastName"
-            label="Last name"
-            value={child.surname || ''}
-            onChange={onLastChange}
-          />
-          <Select
-            id="group"
-            label="Group"
-            value={child.group || ''}
-            options={groups}
-            onChange={onGroupChange}
-          />
-        </ListItem>
-      </List >
+      <Fieldset>
+        <AvatarUploader id={child?.id} />
+        <List>
+          <ListItem>
+            <Typography variant="body2" id="modal-description" sx={{ mt: 2 }}>
+              {title}
+            </Typography>
+          </ListItem>
+          <ListItem>
+            <Input
+              id="firstName"
+              label="First name"
+              value={child.name || ''}
+              onChange={onFirstChange}
+            />
+          </ListItem>
+          <ListItem>
+            <Input
+              id="lastName"
+              label="Last name"
+              value={child.surname || ''}
+              onChange={onLastChange}
+            />
+          </ListItem>
+          <ListItem>
+            <Select
+              id="group"
+              label="Group"
+              value={child.group || ''}
+              options={groups}
+              onChange={onGroupChange}
+            />
+          </ListItem>
+        </List >
+      </Fieldset>
       <DialogPopupFooter onFinish={onFinish} />
     </>
   )
