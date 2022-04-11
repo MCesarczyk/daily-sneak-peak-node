@@ -9,7 +9,7 @@ import {
 import {
   getDataFromApi, removeDataFromApi, sendDataToApi
 } from "../../assets/utils/handleApiCalls";
-import { CHILDREN_URL, FILE_DOWNLOAD_URL } from "../../assets/links";
+import { CHILDREN_URL, AVATAR_URL } from "../../assets/links";
 
 function* fetchChildDataHandler() {
   try {
@@ -19,7 +19,7 @@ function* fetchChildDataHandler() {
     const data = yield response;
     yield put(setChildData(data[0]));
     const avatarId = data[0].avatar;
-    const avatarUrl = avatarId ? `${FILE_DOWNLOAD_URL}/${data[0].avatar}` : '';
+    const avatarUrl = avatarId ? `${AVATAR_URL}/${data[0].avatar}` : '';
     yield put(setChildData({ ...data[0], avatarUrl: avatarUrl }));
   } catch (error) {
     yield call(console.error, error.message);
