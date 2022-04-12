@@ -13,7 +13,7 @@ export const ImageWrapper = styled.div`
   width: 100%;
   display: block;
   overflow: hidden;
-  aspect-ratio: 2/3;
+  aspect-ratio: 1;
 `;
 
 export const PlaceholderImage = styled.div`

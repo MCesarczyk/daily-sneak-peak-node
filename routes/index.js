@@ -19,6 +19,6 @@ router.get('/title', (req, res) => {
 
 router.use('/children', require('./children'));
 
-router.use('/avatar', require('./avatar'));
+router.use('/images', require('./images'));
 
 module.exports = router;

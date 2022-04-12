@@ -25,7 +25,7 @@ const uploadAvatar = async (req, res, next) => {
 const getAvatarUrl = (req, res, next) => {
   const params = {
     Bucket: process.env.DAILY_SNEAK_PEAK_AWS_S3_BUCKET,
-    Key: req.params.fileId,
+    Key: `avatars/${req.params.fileId}`,
     Expires: 60
   };
 

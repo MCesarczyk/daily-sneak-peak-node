@@ -17,7 +17,7 @@ class AvatarUploader extends React.Component {
     rotate: 0
   };
 
-  avatarFileName = `${Date.now().toString()}-${Math.random().toString().substring(2)}`;
+  avatarFileName = `avatars/${Date.now().toString()}-${Math.random().toString().substring(2)}`;
 
   onImageSelect = (e) => {
     this.setState({
