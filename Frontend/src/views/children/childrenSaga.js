@@ -1,12 +1,12 @@
 import { call, put, delay, takeLatest } from "redux-saga/effects";
 import { DEMO_DELAY } from "../../assets/data";
-import { CHILDREN_LIST_URL } from "../../assets/links";
+import { CHILDREN_URL } from "../../assets/links";
 import { getDataFromApi } from "../../assets/utils/handleApiCalls";
 import { fetchChildrenList, reloadChildrenList, setChildrenList, setChildrenState } from "./childrenSlice";
 
 function* fetchChildrenListHandler() {
   try {
-    const url = CHILDREN_LIST_URL;
+    const url = CHILDREN_URL;
     yield put(setChildrenState("loading"));
     const response = yield call(getDataFromApi, url);
     const data = yield response;

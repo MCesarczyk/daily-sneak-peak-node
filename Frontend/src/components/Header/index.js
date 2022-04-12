@@ -5,7 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Title } from './Title';
-import { useFetchData } from '../../assets/useFetchData';
+import { useFetchData } from '../../assets/utils/useFetchData';
 import { TITLE_URL } from '../../assets/links';
 
 const Header = () => {

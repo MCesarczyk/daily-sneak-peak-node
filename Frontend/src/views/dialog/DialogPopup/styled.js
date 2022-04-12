@@ -11,4 +11,10 @@ export const Dialog = styled.div`
   border: none;
   border-radius: 0.5rem;
   padding: 0.5rem 1rem;
+
+  @media (max-width: ${({theme}) => theme.breakpoint.md}) {
+    width: 100%;
+    border-radius: 0;
+    text-align: center;
+  }
 `;

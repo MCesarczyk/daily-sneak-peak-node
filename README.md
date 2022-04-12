@@ -17,9 +17,17 @@ in root folder.
    4. Crease database for development and production.
    5. Give new user permissions to database.
    6. Write down credentials and also database name into `.env` file.
-   7. You can manage your database and its settings using one of many apps to manage SQL db, ie: \
-   *[pgAdmin](https://www.pgadmin.org/), [TablePlus](https://tableplus.com/)*
-3. Run 
+   7. Install pg-migrator globally
+      ```
+      npm install -g pg-migrator
+      ```
+   8. Go to `/sql/migrate` directory.
+   9. Roll migrations
+      ```
+      $ pg-migrator postgres://username:password@localhost/daily_sneak_peak_development
+      (daily_sneak_peak_production)
+      ```
+3. Run Node server
     ```
     npm run devstart
     ```

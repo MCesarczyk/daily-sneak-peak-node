@@ -1,21 +1,19 @@
 import styled from "styled-components";
 
-export const ImageWrapper = styled.div`
+export const ImageOuterWrapper = styled.div`
   grid-area: image;
   width: 10rem;
-  display: block;
-  overflow: hidden;
-  aspect-ratio: 2/3;
 
-  @media(max-width: ${({theme})=>theme.breakpoint.sm}) {
+  @media(max-width: ${({ theme }) => theme.breakpoint.sm}) {
     width: 16rem;
   }
 `;
 
-export const StyledImage = styled.img`
+export const ImageWrapper = styled.div`
   width: 100%;
   display: block;
-  border-radius: 5px;
+  overflow: hidden;
+  aspect-ratio: 1;
 `;
 
 export const PlaceholderImage = styled.div`

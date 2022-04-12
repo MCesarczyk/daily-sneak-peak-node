@@ -37,10 +37,10 @@ test("Dialog should be initially closed", () => {
   });
 });
 
-test("'Add new child dialog' should open after 'Add+' button click in Children List view", () => {
-  setup("add");
+// test("'Add new child dialog' should open after 'Add+' button click in Children List view", () => {
+//   setup("add");
 
-  const button = screen.getByText(modal["add"].buttonText);
-  fireEvent.click(button);
-  expect(screen.queryByText(modal["add"].title)).toBeInTheDocument();
-});
+//   const button = screen.getByText(modal["add"].buttonText);
+//   fireEvent.click(button);
+//   expect(screen.queryByText(modal["add"].title)).toBeInTheDocument();
+// });

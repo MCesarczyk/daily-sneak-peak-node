@@ -1,7 +1,8 @@
-const apiUrl = process.env.NODE_ENV === 'production' ? 'https://teachers-assistant.cesarczyk.dev' : '';
+const apiUrl = process.env.NODE_ENV === 'production' ? 'https://teachers-assistant.cesarczyk.dev/api' : '';
 
-export const TITLE_URL = `${apiUrl}/api/title`;
-export const CHILDREN_LIST_URL = `${apiUrl}/api/get/children`;
-export const CHILD_POST_URL = `${apiUrl}/api/post/childtodb`;
-export const CHILD_UPDATE_URL = `${apiUrl}/api/put/children`;
-export const CHILD_DELETE_URL = `${apiUrl}/api/delete/children`;
+export const TITLE_URL = `${apiUrl}/title`;
+
+export const CHILDREN_URL = `${apiUrl}/children`;
+
+export const AVATAR_URL = `${apiUrl}/images/getUrl`;
+export const AVATAR_UPLOAD_URL = `${apiUrl}/images/upload`;

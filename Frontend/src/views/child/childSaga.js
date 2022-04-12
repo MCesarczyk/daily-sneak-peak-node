@@ -1,6 +1,4 @@
 import { call, put, select, takeLatest } from "redux-saga/effects";
-import { CHILDREN_LIST_URL, CHILD_DELETE_URL, CHILD_POST_URL, CHILD_UPDATE_URL } from "../../assets/links";
-import { getDataFromApi, removeDataFromApi, sendDataToApi } from "../../assets/utils/handleApiCalls";
 import { reloadChildrenList } from "../children/childrenSlice";
 import { setDialogClosed } from "../dialog/dialogSlice";
 import {
@@ -8,14 +6,21 @@ import {
   selectChildId, postChildData, updateChildData, deleteChildData,
   returnToChildrenList,
 } from "./childSlice";
+import {
+  getDataFromApi, removeDataFromApi, sendDataToApi
+} from "../../assets/utils/handleApiCalls";
+import { CHILDREN_URL, AVATAR_URL } from "../../assets/links";
 
 function* fetchChildDataHandler() {
   try {
     const id = yield select(selectChildId);
-    const url = `${CHILDREN_LIST_URL}/${id}`;
+    const url = `${CHILDREN_URL}/${id}`;
     const response = yield call(getDataFromApi, url);
     const data = yield response;
     yield put(setChildData(data[0]));
+    const avatarId = data[0].avatar;
+    const avatarUrl = avatarId ? `${AVATAR_URL}/${data[0].avatar}` : '';
+    yield put(setChildData({ ...data[0], avatarUrl: avatarUrl }));
   } catch (error) {
     yield call(console.error, error.message);
   }
@@ -32,7 +37,7 @@ function* dispatchChildDataHandler(url, method) {
 };
 
 function* postChildDataHandler() {
-  const url = CHILD_POST_URL;
+  const url = CHILDREN_URL;
   const method = "post";
   yield call(dispatchChildDataHandler, url, method);
   yield put(reloadChildrenList());
@@ -40,14 +45,14 @@ function* postChildDataHandler() {
 
 function* updateChildDataHandler() {
   const id = yield select(selectChildId);
-  const url = `${CHILD_UPDATE_URL}/${id}`;
+  const url = `${CHILDREN_URL}/${id}`;
   const method = "put";
   yield call(dispatchChildDataHandler, url, method);
 };
 
 function* deleteChildDataHandler() {
   const id = yield select(selectChildId);
-  const url = `${CHILD_DELETE_URL}/${id}`;
+  const url = `${CHILDREN_URL}/${id}`;
   yield call(removeDataFromApi, url);
   yield put(returnToChildrenList());
 };
