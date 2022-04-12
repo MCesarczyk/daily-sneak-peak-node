@@ -10,6 +10,17 @@ export const UploaderWrapper = styled.div`
   }
 `
 
+export const SliderWrapper = styled.div`
+  text-align: center;
+  font-size: 24px;
+  font-weight: 500;
+`
+
+export const Slider = styled.input`
+  margin: 0.25rem 0.5rem;
+  transform: translateY(-0.25rem);
+`
+
 export const ButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-between;

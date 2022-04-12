@@ -1,14 +1,20 @@
 import React from 'react';
 import { Button } from '@mui/material';
+import ZoomOutIcon from '@mui/icons-material/ZoomOut';
+import ZoomInIcon from '@mui/icons-material/ZoomIn';
+import RotateLeftIcon from '@mui/icons-material/RotateLeft';
+import RotateRightIcon from '@mui/icons-material/RotateRight';
 import AvatarEditor from 'react-avatar-editor';
 import Dropzone from 'react-dropzone'
 import { AVATAR_UPLOAD_URL } from '../../assets/links';
-import { ButtonsWrapper, FileInput, UploaderWrapper } from './styled';
+import { ButtonsWrapper, FileInput, Slider, SliderWrapper, UploaderWrapper } from './styled';
 
 class AvatarUploader extends React.Component {
   state = {
     image: '',
-    fileName: ''
+    fileName: '',
+    scale: 1.5,
+    rotate: 0
   };
 
   avatarFileName = `${Date.now().toString()}-${Math.random().toString().substring(2)}`;
@@ -25,6 +31,14 @@ class AvatarUploader extends React.Component {
       image: dropped[0],
       fileName: this.avatarFileName
     })
+  };
+
+  onScaleChange = (e) => {
+    this.setState({ scale: e.target.value });
+  };
+
+  onRotationChange = (e) => {
+    this.setState({ rotate: e.target.value });
   };
 
   onImageSave = async () => {
@@ -68,16 +82,44 @@ class AvatarUploader extends React.Component {
                 <AvatarEditor
                   ref={this.setEditorRef}
                   image={this.state.image}
+                  scale={parseFloat(this.state.scale)}
+                  rotate={parseFloat(this.state.rotate)}
                   width={200}
                   height={200}
                   border={40}
-                  scale={1.8}
-                  rotate={0}
                 />
                 <input {...getInputProps()} />
               </div>
             )}
           </Dropzone>
+          <SliderWrapper>
+            <div>
+              <ZoomOutIcon/>
+              <Slider
+                type="range"
+                name="zoom"
+                min={0.5}
+                max={5.0}
+                defaultValue={1.5}
+                step={0.01}
+                onChange={this.onScaleChange}
+              />
+              <ZoomInIcon/>
+            </div>
+            <div>
+              <RotateLeftIcon/>
+              <Slider
+                type="range"
+                name="rotate"
+                min={-180}
+                max={180}
+                defaultValue={0}
+                step={0.01}
+                onChange={this.onRotationChange}
+              />
+              <RotateRightIcon/>
+            </div>
+          </SliderWrapper>
           <ButtonsWrapper>
             <FileInput
               ref={this.setInputRef}
