@@ -36,10 +36,11 @@ const updateChild = (req, res, next) => {
   const values = [req.body.name,
   req.body.surname,
   req.body.group,
+  req.body.avatar,
   req.params.id]
 
-  pool.query(`UPDATE children SET name=$1, surname=$2, "group"=$3, updated_at=NOW()\
-   WHERE id=$4`,
+  pool.query(`UPDATE children SET name=$1, surname=$2, "group"=$3, updated_at=NOW(), avatar=$4\
+   WHERE id=$5`,
     values, (q_err, q_res) => {
       if (q_err) return next(q_err);
       res.json(q_res.rows)

@@ -1,5 +1,4 @@
 const AWS = require('aws-sdk');
-const { pool } = require('../db')
 const imagesService = require('../utils/uploadImage');
 
 var s3 = new AWS.S3({
@@ -11,26 +10,16 @@ var s3 = new AWS.S3({
 });
 
 const uploadAvatar = async (req, res, next) => {
-  const childId = req.params.childId;
-  console.log(`Upload avatar for child: ${childId}`);
-  const key = Date.now().toString();
+  const key = req.body.name;
   const base64Image = req.body.image;
-  let response;
 
   try {
-    response = await imagesService.upload(key, base64Image);
+    const response = await imagesService.upload(key, base64Image);
+    res.json(response);
   } catch (err) {
     console.error(`Error uploading image: ${err.message}`);
     return next(new Error(`Error uploading image`));
   }
-
-  const values = [key, req.params.childId];
-
-  pool.query(`UPDATE children SET avatar=$1, updated_at=NOW() WHERE id=$2`,
-    values, (q_err, q_res) => {
-      if (q_err) return next(q_err);
-      res.json(q_res.rows)
-    });
 };
 
 const getAvatarUrl = (req, res, next) => {

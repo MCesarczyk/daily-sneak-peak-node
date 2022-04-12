@@ -3,7 +3,7 @@ const router = express.Router();
 
 const avatarController = require('../controllers/avatar');
 
-router.post('/upload/:childId', avatarController.uploadAvatar);
+router.post('/upload', avatarController.uploadAvatar);
 
 router.get('/getUrl/:fileId', avatarController.getAvatarUrl);
 

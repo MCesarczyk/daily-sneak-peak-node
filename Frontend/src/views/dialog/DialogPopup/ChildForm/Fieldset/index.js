@@ -1,10 +1,10 @@
 import { Typography } from "@mui/material";
+import AvatarUploader from "../../../../../features/AvatarUploader";
 import { groups } from "../../../../../assets/fixtures";
 import DialogPopupFooter from "../../Footer";
-import { Fieldset, List, ListItem } from "./styled";
 import Input from "../../../../../components/Input";
 import Select from "../../../../../components/Select";
-import AvatarUploader from "../../../../../features/AvatarUploader";
+import { Fieldset, List, ListItem } from "./styled";
 
 const ChildFormFieldset = ({ title, child, setChild, onFinish }) => {
   const onFirstChange = ({ target }) => {
@@ -28,10 +28,19 @@ const ChildFormFieldset = ({ title, child, setChild, onFinish }) => {
     });
   };
 
+  const onAvatarChange = (payload) => {
+    setChild({
+      ...child,
+      avatar: payload,
+    });
+  };
+
   return (
     <>
       <Fieldset>
-        <AvatarUploader id={child?.id} />
+        <AvatarUploader
+          onAvatarChange={onAvatarChange}
+        />
         <List>
           <ListItem>
             <Typography variant="body2" id="modal-description" sx={{ mt: 2 }}>

@@ -6,7 +6,15 @@ import { ButtonsWrapper, FileInput, UploaderWrapper } from './styled';
 
 class AvatarUploader extends React.Component {
   state = {
-    image: ''
+    image: '',
+    fileName: ''
+  };
+
+  onImageChange = (e) => {
+    this.setState({
+      image: e.target.files[0],
+      fileName: `${Date.now().toString()}-${Math.random().toString().substring(2)}`
+    });
   };
 
   onImageSave = async () => {
@@ -14,17 +22,21 @@ class AvatarUploader extends React.Component {
       const canvasScaled = this.editor.getImageScaledToCanvas();
       const convertedFile = await canvasScaled.toDataURL();
 
-      const response = await fetch(`${AVATAR_UPLOAD_URL}/${this.props.id}`, {
+      const response = await fetch(AVATAR_UPLOAD_URL, {
         method: 'POST',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          'image': convertedFile
+          'image': convertedFile,
+          'name': this.state.fileName
         })
       })
-      if (response?.statusText === "OK") console.log("uploaded");
+
+      if (response?.statusText === "OK") {
+        this.props.onAvatarChange(this.state.fileName);
+      };
     }
   }
 
@@ -49,7 +61,7 @@ class AvatarUploader extends React.Component {
               ref={this.setInputRef}
               name="file"
               type="file"
-              onChange={(e) => this.setState({ image: e.target.files[0] })}
+              onChange={this.onImageChange}
             />
             <Button onClick={() => this.input.click()}>SELECT FILE</Button>
             <Button onClick={this.onImageSave}>UPLOAD</Button>
