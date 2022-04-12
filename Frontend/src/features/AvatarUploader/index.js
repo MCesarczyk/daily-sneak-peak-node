@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@mui/material';
 import AvatarEditor from 'react-avatar-editor';
+import Dropzone from 'react-dropzone'
 import { AVATAR_UPLOAD_URL } from '../../assets/links';
 import { ButtonsWrapper, FileInput, UploaderWrapper } from './styled';
 
@@ -10,11 +11,20 @@ class AvatarUploader extends React.Component {
     fileName: ''
   };
 
-  onImageChange = (e) => {
+  avatarFileName = `${Date.now().toString()}-${Math.random().toString().substring(2)}`;
+
+  onImageSelect = (e) => {
     this.setState({
       image: e.target.files[0],
-      fileName: `${Date.now().toString()}-${Math.random().toString().substring(2)}`
+      fileName: this.avatarFileName
     });
+  };
+
+  onImageDrop = (dropped) => {
+    this.setState({
+      image: dropped[0],
+      fileName: this.avatarFileName
+    })
   };
 
   onImageSave = async () => {
@@ -36,9 +46,9 @@ class AvatarUploader extends React.Component {
 
       if (response?.statusText === "OK") {
         this.props.onAvatarChange(this.state.fileName);
-      };
+      }
     }
-  }
+  };
 
   setEditorRef = (editor) => (this.editor = editor);
   setInputRef = (input) => (this.input = input);
@@ -47,21 +57,33 @@ class AvatarUploader extends React.Component {
     return (
       <UploaderWrapper>
         <div>
-          <AvatarEditor
-            ref={this.setEditorRef}
-            image={this.state.image}
-            width={200}
-            height={200}
-            border={40}
-            scale={1.8}
-            rotate={0}
-          />
+          <Dropzone
+            onDrop={this.onImageDrop}
+            noClick
+            noKeyboard
+            style={{ width: "350px", height: "350px" }}
+          >
+            {({ getRootProps, getInputProps }) => (
+              <div {...getRootProps()}>
+                <AvatarEditor
+                  ref={this.setEditorRef}
+                  image={this.state.image}
+                  width={200}
+                  height={200}
+                  border={40}
+                  scale={1.8}
+                  rotate={0}
+                />
+                <input {...getInputProps()} />
+              </div>
+            )}
+          </Dropzone>
           <ButtonsWrapper>
             <FileInput
               ref={this.setInputRef}
               name="file"
               type="file"
-              onChange={this.onImageChange}
+              onChange={this.onImageSelect}
             />
             <Button onClick={() => this.input.click()}>SELECT FILE</Button>
             <Button onClick={this.onImageSave}>UPLOAD</Button>
@@ -73,16 +95,3 @@ class AvatarUploader extends React.Component {
 }
 
 export default AvatarUploader;
-
-{/* <Input
-        ref={uploadRef}
-        onChange={e => { onChange([...e.target.files]) }}
-        type="file"
-        fileUploader
-        multiple
-      />
-      <Button 
-        round
-        fileUploader
-        onClick={() => uploadRef.current.click()}
-      ></Button> */}
