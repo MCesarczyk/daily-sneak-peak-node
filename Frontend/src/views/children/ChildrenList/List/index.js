@@ -1,31 +1,21 @@
 import List from '@mui/material/List';
-import ListViewItem from './Item';
-import { Space } from '../../../../components/Space';
 import Loader from '../../../../components/Loader';
-import DialogPopup from '../../../dialog/DialogPopup';
+import { Space } from '../../../../components/Space';
 
-const ListView = ({ state, childrenList }) => (
+const ListView = ({ state, children, extraContent }) => (
   <Loader
     state={state}
     message="Loading"
   >
     <Space>
       <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
-        {childrenList.length > 0 && childrenList.map(child => (
-          <ListViewItem
-            key={child.id}
-            child={child}
-          />
-        ))}
+        {children}
       </List>
       <Space
         vertical
         justify="start"
       >
-        <DialogPopup
-          form='add'
-          buttonLabel="Add+"
-        />
+        {extraContent}
       </Space>
     </Space>
   </Loader>

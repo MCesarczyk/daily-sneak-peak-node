@@ -4,6 +4,8 @@ import { selectChildrenList, selectChildrenState } from "../childrenSlice";
 import { useDispatch } from 'react-redux';
 import { clearChildrenList, fetchChildrenList } from '../childrenSlice';
 import ListView from './List';
+import ListViewItem from './List/Item';
+import DialogPopup from '../../dialog/DialogPopup';
 
 const ChildrenList = () => {
   const childrenList = useSelector(selectChildrenList);
@@ -21,8 +23,19 @@ const ChildrenList = () => {
   return (
     <ListView
       state={state}
-      childrenList={childrenList}
-    />
+      extraContent={
+        <DialogPopup form='add' />
+      }
+    >
+      {childrenList.length > 0 && childrenList.map(child => (
+        <ListViewItem
+          id={child.id}
+          url={`/children/${child.id}`}
+          title={`Child: ${child.name + " " + child.surname}`}
+          subtitle={`Group: ${child.group}`}
+        />
+      ))}
+    </ListView>
   )
 };
 

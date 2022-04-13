@@ -5,17 +5,17 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
 
-const ListViewItem = ({ child }) => (
-  <ListItem key={child.id}>
+const ListViewItem = ({ id, url, title, subtitle }) => (
+  <ListItem key={id}>
     <ListItemAvatar>
       <Avatar>
         <ImageIcon />
       </Avatar>
     </ListItemAvatar>
-    <Link to={`/children/${child.id}`}>
+    <Link to={url}>
       <ListItemText
-        primary={`Child: ${child.name + " " + child.surname}`}
-        secondary={`Group: ${child.group}`} />
+        primary={title}
+        secondary={subtitle} />
     </Link>
   </ListItem>
 );

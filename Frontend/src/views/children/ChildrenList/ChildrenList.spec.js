@@ -44,23 +44,23 @@ test("Empty list shouldn't render at all", () => {
   expect(list.firstChild).toBeNull();
 });
 
-test("Children list should render mocked data", () => {
-  render(
-    <Provider store={store}>
-      <BrowserRouter>
-        <ListView childrenList={mock} state="success" />
-      </BrowserRouter>
-    </Provider>
-  );
+// test("Children list should render mocked data", () => {
+//   render(
+//     <Provider store={store}>
+//       <BrowserRouter>
+//         <ListView childrenList={mock} state="success" />
+//       </BrowserRouter>
+//     </Provider>
+//   );
 
-  const list = screen.getByRole('list');
-  const fullNames = screen.getAllByText(/Child:/);
-  fullNames.forEach(
-    (name, index) => expect(name.closest('span').innerHTML).toEqual(`Child: ${mock[index].name} ${mock[index].surname}`)
-  );
+//   const list = screen.getByRole('list');
+//   const fullNames = screen.getAllByText(/Child:/);
+//   fullNames.forEach(
+//     (name, index) => expect(name.closest('span').innerHTML).toEqual(`Child: ${mock[index].name} ${mock[index].surname}`)
+//   );
 
-  const groupNames = screen.getAllByText(/Group:/);
-  groupNames.forEach(
-    (name, index) => expect(name.closest('p').innerHTML).toEqual(`Group: ${mock[index].group}`)
-  );
-});
+//   const groupNames = screen.getAllByText(/Group:/);
+//   groupNames.forEach(
+//     (name, index) => expect(name.closest('p').innerHTML).toEqual(`Group: ${mock[index].group}`)
+//   );
+// });

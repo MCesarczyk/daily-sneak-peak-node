@@ -8,7 +8,12 @@ const setup = (id) => {
 
   const item = render(
     <BrowserRouter>
-      <ListViewItem child={child} />
+      <ListViewItem
+        id={child.id}
+        url={`/children/${child.id}`}
+        title={`Child: ${child.name + " " + child.surname}`}
+        subtitle={`Group: ${child.group}`}
+      />
     </BrowserRouter>
   );
 
@@ -33,7 +38,7 @@ test("ListViewItem should get link to single child view (middle)", () => {
 });
 
 test("ListViewItem should get link to single child view (last on list)", () => {
-  const fullName = setup(mock.length-1).getByText(/Sophie Moon/);
+  const fullName = setup(mock.length - 1).getByText(/Sophie Moon/);
   expect(fullName).toBeInTheDocument();
   expect(fullName.closest('a')).toHaveAttribute('href', '/children/5')
 });
