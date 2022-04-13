@@ -3,8 +3,8 @@ import { useSelector } from "react-redux";
 import { selectChildrenList, selectChildrenState } from "../childrenSlice";
 import { useDispatch } from 'react-redux';
 import { clearChildrenList, fetchChildrenList } from '../childrenSlice';
-import ListView from './List';
-import ListViewItem from './List/Item';
+import ListView from '../../../components/ListView';
+import ListViewItem from '../../../components/ListView/Item';
 import DialogPopup from '../../dialog/DialogPopup';
 
 const ChildrenList = () => {

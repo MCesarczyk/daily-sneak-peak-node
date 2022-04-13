@@ -1,6 +1,6 @@
 import List from '@mui/material/List';
-import Loader from '../../../../components/Loader';
-import { Space } from '../../../../components/Space';
+import Loader from '../Loader';
+import { Space } from '../Space';
 
 const ListView = ({ state, children, extraContent }) => (
   <Loader

@@ -1,7 +1,7 @@
 import { render } from "@testing-library/react";
 import { BrowserRouter } from "react-router-dom";
 import ListViewItem from ".";
-import mock from "../../../../../assets/mocks/children.json";
+import mock from "../../../assets/mocks/children.json";
 
 const setup = (id) => {
   const child = mock[id];

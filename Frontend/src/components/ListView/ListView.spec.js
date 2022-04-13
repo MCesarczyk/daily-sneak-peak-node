@@ -1,9 +1,9 @@
 import { render, screen } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom";
+// import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import store from "../../../store";
-import mock from "../../../assets/mocks/children.json";
-import ListView from "./List";
+import store from "../../store";
+// import mock from "../../../assets/mocks/children.json";
+import ListView from ".";
 
 test("Children list should render spinner during loading", () => {
   render(
