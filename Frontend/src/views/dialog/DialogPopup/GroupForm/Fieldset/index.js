@@ -1,36 +1,34 @@
 import { Typography } from "@mui/material";
 import AvatarUploader from "../../../../../features/AvatarUploader";
-import { groups } from "../../../../../assets/fixtures";
 import DialogPopupFooter from "../../Footer";
 import Input from "../../../../../components/Input";
-import Select from "../../../../../components/Select";
 import { Fieldset, List, ListItem } from "../../styled";
 
-const ChildFormFieldset = ({ title, child, setChild, onFinish }) => {
-  const onFirstChange = ({ target }) => {
-    setChild({
-      ...child,
+const GroupFormFieldset = ({ title, group, setGroup, onFinish }) => {
+  const onNameChange = ({ target }) => {
+    setGroup({
+      ...group,
       name: target.value,
     });
   };
 
-  const onLastChange = ({ target }) => {
-    setChild({
-      ...child,
-      surname: target.value,
+  const onDescriptionChange = ({ target }) => {
+    setGroup({
+      ...group,
+      description: target.value,
     });
   };
 
-  const onGroupChange = ({ target }) => {
-    setChild({
-      ...child,
-      group: target.value,
+  const onNotesChange = ({ target }) => {
+    setGroup({
+      ...group,
+      notes: target.value,
     });
   };
 
   const onAvatarChange = (payload) => {
-    setChild({
-      ...child,
+    setGroup({
+      ...group,
       avatar: payload,
     });
   };
@@ -49,27 +47,26 @@ const ChildFormFieldset = ({ title, child, setChild, onFinish }) => {
           </ListItem>
           <ListItem>
             <Input
-              id="firstName"
-              label="First name"
-              value={child.name || ''}
-              onChange={onFirstChange}
+              id="groupName"
+              label="Group name"
+              value={group.name || ''}
+              onChange={onNameChange}
             />
           </ListItem>
           <ListItem>
             <Input
-              id="lastName"
-              label="Last name"
-              value={child.surname || ''}
-              onChange={onLastChange}
+              id="description"
+              label="Description"
+              value={group.description || ''}
+              onChange={onDescriptionChange}
             />
           </ListItem>
           <ListItem>
-            <Select
-              id="group"
-              label="Group"
-              value={child.group || ''}
-              options={groups}
-              onChange={onGroupChange}
+            <Input
+              id="notes"
+              label="Notes"
+              value={group.notes || ''}
+              onChange={onNotesChange}
             />
           </ListItem>
         </List >
@@ -79,4 +76,4 @@ const ChildFormFieldset = ({ title, child, setChild, onFinish }) => {
   )
 };
 
-export default ChildFormFieldset;
+export default GroupFormFieldset;

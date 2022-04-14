@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { clearGroupsList, fetchGroupsList } from '../groupsSlice';
 import ListView from '../../../components/ListView';
 import ListViewItem from '../../../components/ListView/Item';
-// import DialogPopup from '../../dialog/DialogPopup';
+import DialogPopup from '../../dialog/DialogPopup';
 
 const GroupsList = () => {
   const groupsList = useSelector(selectGroupsList);
@@ -23,9 +23,9 @@ const GroupsList = () => {
   return (
     <ListView
       state={state}
-    // extraContent={
-    //   <DialogPopup form='add' />
-    // }
+    extraContent={
+      <DialogPopup form='addGroup' />
+    }
     >
       {groupsList.length > 0 && groupsList.map(group => (
         <ListViewItem

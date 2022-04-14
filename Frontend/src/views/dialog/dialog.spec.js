@@ -7,10 +7,12 @@ import DialogPopup from "./DialogPopup";
 import { modal } from "../../assets/fixtures";
 
 const formTypes = [
-  "add",
-  "edit",
-  "addDetails",
-  "editDetails"
+  "addChild",
+  "editChild",
+  "addGroup",
+  "editGroup",
+  "addActivities",
+  "editActivities"
 ];
 
 const setup = (form) => render(

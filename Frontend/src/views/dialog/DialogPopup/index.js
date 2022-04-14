@@ -11,6 +11,7 @@ import ChildForm from "./ChildForm";
 import { Space } from "../../../components/Space";
 import { Dialog } from "./styled";
 import { modal } from "../../../assets/fixtures";
+import GroupForm from "./GroupForm";
 
 const DialogPopup = ({ form }) => {
   const dispatch = useDispatch();
@@ -45,11 +46,14 @@ const DialogPopup = ({ form }) => {
               <CloseIcon />
             </Button>
           </Space>
-          {type === 'add' &&
+          {type === 'addChild' &&
             <ChildForm />
           }
-          {type === 'edit' &&
+          {type === 'editChild' &&
             <ChildForm />
+          }
+          {type === 'addGroup' &&
+            <GroupForm />
           }
         </Dialog>
       </Modal>

@@ -20,7 +20,7 @@ const TileFooter = () => {
           onActionCall={() => dispatch(deleteChildData(child?.id))}
         />
         <DialogPopup
-          form='edit'
+          form='editChild'
           buttonLabel="Edit child"
         />
       </ButtonsWrapper>

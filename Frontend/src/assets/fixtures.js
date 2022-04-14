@@ -25,19 +25,27 @@ export const pages = [
 ];
 
 export const modal = {
-  add: {
+  addChild: {
     buttonText: "Add+",
     title: "Add new child"
   },
-  edit: {
+  editChild: {
     buttonText: "Edit",
     title: "Edit child"
   },
-  addDetails: {
+  addGroup: {
+    buttonText: "Add+",
+    title: "Add new group"
+  },
+  editGroup: {
+    buttonText: "Edit",
+    title: "Edit group"
+  },
+  addActivities: {
     buttonText: "Add+",
     title: "Add daily activities"
   },
-  editDetails: {
+  editActivities: {
     buttonText: "Edit",
     title: "Edit activities"
   }

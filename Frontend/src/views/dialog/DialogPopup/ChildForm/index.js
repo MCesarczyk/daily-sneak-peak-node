@@ -24,14 +24,14 @@ const ChildForm = () => {
   };
 
   useEffect(() => {
-    if (type === 'edit') {
+    if (type === 'editChild') {
       fetchApiChild();
     }
   }, [type, open, apiData]);
 
   const onFinish = () => {
-    type === 'add' && dispatch(postChildData(child));
-    type === 'edit' && dispatch(updateChildData(child));
+    type === 'addChild' && dispatch(postChildData(child));
+    type === 'editChild' && dispatch(updateChildData(child));
   };
 
   return (

@@ -24,7 +24,7 @@ const ChildrenList = () => {
     <ListView
       state={state}
       extraContent={
-        <DialogPopup form='add' />
+        <DialogPopup form='addChild' />
       }
     >
       {childrenList.length > 0 && childrenList.map(child => (
