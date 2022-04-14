@@ -53,7 +53,7 @@ const GroupDetails = () => {
       footerData={{
         buttonLabel: "Delete group",
         onDeleteWarning: `You're about to delete group: ${group?.name}`,
-        onActionCall: () => dispatch(deleteGroupData(group?.id)),
+        onActionCall: () => dispatch(deleteGroupData(group?.gid)),
         popupFormType: 'editGroup'
       }}
     />

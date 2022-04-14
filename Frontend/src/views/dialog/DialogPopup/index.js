@@ -55,6 +55,9 @@ const DialogPopup = ({ form }) => {
           {type === 'addGroup' &&
             <GroupForm />
           }
+          {type === 'editGroup' &&
+            <GroupForm />
+          }
         </Dialog>
       </Modal>
     </>
