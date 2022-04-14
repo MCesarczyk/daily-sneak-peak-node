@@ -6,6 +6,24 @@ export const groups = [
   { id: 5, label: "Monkeys" }
 ];
 
+export const pages = [
+  {
+    id: 1,
+    label: 'Children',
+    path: '/children'
+  },
+  {
+    id: 2,
+    label: 'Groups',
+    path: '/groups'
+  },
+  {
+    id: 3,
+    label: 'Users',
+    path: '/users'
+  }
+];
+
 export const modal = {
   add: {
     buttonText: "Add+",

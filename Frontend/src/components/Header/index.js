@@ -13,24 +13,7 @@ import { Title } from './Title';
 import { useFetchData } from '../../assets/utils/useFetchData';
 import { TITLE_URL } from '../../assets/links';
 import { NavButton } from './styled';
-
-const pages = [
-  {
-    id: 1,
-    label: 'Children',
-    path: '/children'
-  },
-  {
-    id: 2,
-    label: 'Groups',
-    path: '/groups'
-  },
-  {
-    id: 3,
-    label: 'Users',
-    path: '/users'
-  }
-];
+import { pages } from '../../assets/fixtures';
 
 const Header = () => {
   const title = useFetchData(TITLE_URL);
