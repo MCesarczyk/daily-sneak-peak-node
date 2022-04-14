@@ -3,16 +3,16 @@ import { Skeleton } from "@mui/material";
 import TileFooter from "./Footer";
 import NotFound from "../../../../components/NotFound";
 import { StyledTile } from "./styled";
-import Image from "./Image";
+import Avatar from "./Avatar";
 import Heading from "./Heading";
 
-const Tile = ({ child, headingData, footerData }) => (
+const Tile = ({ state, avatarUrl, headingData, footerData }) => (
   <>
-    {!child
-      ? <NotFound message="Sorry... no child data found." />
-      : <StyledTile data-testid="child-tile">
-        <Image child={child} />
-        {child && Object.entries(child).length === 0 ?
+    {state.notFound
+      ? <NotFound message={state.errorMessage} />
+      : <StyledTile data-testid="details-tile">
+        <Avatar url={avatarUrl} />
+        {state.loading ?
           <>
             <Skeleton height={42} />
             <Skeleton height={36} />

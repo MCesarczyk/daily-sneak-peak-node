@@ -35,7 +35,12 @@ const ChildData = () => {
 
   return (
     <Tile
-      child={child}
+      state={{
+        notFound: !child,
+        errorMessage: "Sorry... no child data found.",
+        loading: child && Object.entries(child).length === 0
+      }}
+      avatarUrl={child?.avatarUrl}
       headingData={{
         title: `${child?.name} ${child?.surname}`,
         subtitle: child?.group

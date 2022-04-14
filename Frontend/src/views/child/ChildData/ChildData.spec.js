@@ -11,10 +11,21 @@ const setup = (child) => render(
   <Provider store={store}>
     <ThemeProvider theme={lightMode}>
       <Tile
-        child={child}
+        state={{
+          notFound: !child,
+          errorMessage: "Sorry... no child data found.",
+          loading: child && Object.entries(child).length === 0
+        }}
+        avatarUrl={child?.avatarUrl}
         headingData={{
           title: `${child?.name} ${child?.surname}`,
           subtitle: child?.group
+        }}
+        footerData={{
+          buttonLabel: "Delete child",
+          onDeleteWarning: `You're about to delete ${child?.name} ${child?.surname}`,
+          onActionCall: () => dispatch(deleteChildData(child?.id)),
+          popupFormType: 'editChild'
         }}
       />
     </ThemeProvider>
@@ -39,7 +50,7 @@ test("Child reducer should return mocked data", () => {
 test("Child data should render properly", async () => {
   setup(mock);
 
-  const tile = screen.queryByTestId('child-tile');
+  const tile = screen.queryByTestId('details-tile');
   expect(tile).toBeInTheDocument();
 
   expect(screen.getByText(/name:/)).toBeInTheDocument();
@@ -51,7 +62,7 @@ test("Child data should render properly", async () => {
 test("Placeholder should display when it's no data", () => {
   setup();
 
-  const tile = screen.queryByTestId('child-tile');
+  const tile = screen.queryByTestId('details-tile');
   expect(tile).not.toBeInTheDocument();
 
   const errorMessage = screen.getByRole('heading');
