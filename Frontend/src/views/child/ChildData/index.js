@@ -4,6 +4,7 @@ import { useNavigate } from "react-router";
 import { useDispatch, useSelector } from "react-redux";
 import {
   clearChildData,
+  deleteChildData,
   fetchChildData,
   selectChildData,
   selectChildGotoList
@@ -38,6 +39,12 @@ const ChildData = () => {
       headingData={{
         title: `${child?.name} ${child?.surname}`,
         subtitle: child?.group
+      }}
+      footerData={{
+        buttonLabel: "Delete child",
+        onDeleteWarning: `You're about to delete ${child?.name} ${child?.surname}`,
+        onActionCall: () => dispatch(deleteChildData(child?.id)),
+        popupFormType: 'editChild'
       }}
     />
   );

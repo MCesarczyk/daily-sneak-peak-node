@@ -6,7 +6,7 @@ import { StyledTile } from "./styled";
 import Image from "./Image";
 import Heading from "./Heading";
 
-const Tile = ({ child, headingData }) => (
+const Tile = ({ child, headingData, footerData }) => (
   <>
     {!child
       ? <NotFound message="Sorry... no child data found." />
@@ -18,11 +18,9 @@ const Tile = ({ child, headingData }) => (
             <Skeleton height={36} />
           </>
           :
-          <Heading
-            data={headingData}
-          />
+          <Heading data={headingData} />
         }
-        <TileFooter />
+        <TileFooter data={footerData} />
       </StyledTile>
     }
   </>
