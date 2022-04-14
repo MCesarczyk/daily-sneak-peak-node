@@ -4,18 +4,18 @@ import { Label } from '../../../../../components/Label';
 import { Space } from '../../../../../components/Space';
 import { SubTitle, Title, TitleFieldset } from './styled';
 
-const Name = ({ name, group }) => (
+const Heading = ({ data }) => (
   <TitleFieldset>
     <Space>
       <Label size={0.75}>name: </Label>
-      <Title>{name}</Title>
+      <Title>{data?.title}</Title>
     </Space>
     <Space>
       <Label size={0.75}>group: </Label>
-      <SubTitle role="subheading">{group}</SubTitle>
+      <SubTitle role="subheading">{data?.subtitle}</SubTitle>
     </Space>
     <Divider />
   </TitleFieldset>
 );
 
-export default Name;
+export default Heading;

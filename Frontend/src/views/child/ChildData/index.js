@@ -33,7 +33,13 @@ const ChildData = () => {
   }, []);
 
   return (
-    <Tile child={child} />
+    <Tile
+      child={child}
+      headingData={{
+        title: `${child?.name} ${child?.surname}`,
+        subtitle: child?.group
+      }}
+    />
   );
 };
 

@@ -10,7 +10,13 @@ import Tile from "./Tile";
 const setup = (child) => render(
   <Provider store={store}>
     <ThemeProvider theme={lightMode}>
-      <Tile child={child} />
+      <Tile
+        child={child}
+        headingData={{
+          title: `${child?.name} ${child?.surname}`,
+          subtitle: child?.group
+        }}
+      />
     </ThemeProvider>
   </Provider>
 );
@@ -37,7 +43,7 @@ test("Child data should render properly", async () => {
   expect(tile).toBeInTheDocument();
 
   expect(screen.getByText(/name:/)).toBeInTheDocument();
-  expect(screen.getByRole('heading').innerHTML).toBe('Mary Jane');
+  expect(screen.getByRole('heading').textContent).toBe('Mary Jane');
   expect(screen.getByText(/group:/)).toBeInTheDocument();
   expect(screen.getByRole('subheading').innerHTML).toBe("Crocodiles");
 });

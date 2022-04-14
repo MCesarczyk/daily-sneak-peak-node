@@ -4,9 +4,9 @@ import TileFooter from "./Footer";
 import NotFound from "../../../../components/NotFound";
 import { StyledTile } from "./styled";
 import Image from "./Image";
-import Name from "./Name";
+import Heading from "./Heading";
 
-const Tile = ({ child }) => (
+const Tile = ({ child, headingData }) => (
   <>
     {!child
       ? <NotFound message="Sorry... no child data found." />
@@ -18,9 +18,8 @@ const Tile = ({ child }) => (
             <Skeleton height={36} />
           </>
           :
-          <Name
-            name={child?.name + ' ' + child?.surname}
-            group={child?.group}
+          <Heading
+            data={headingData}
           />
         }
         <TileFooter />
