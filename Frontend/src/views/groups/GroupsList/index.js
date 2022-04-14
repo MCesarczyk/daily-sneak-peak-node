@@ -23,13 +23,13 @@ const GroupsList = () => {
   return (
     <ListView
       state={state}
-      // extraContent={
-      //   <DialogPopup form='add' />
-      // }
+    // extraContent={
+    //   <DialogPopup form='add' />
+    // }
     >
       {groupsList.length > 0 && groupsList.map(group => (
         <ListViewItem
-          id={group.id}
+          key={group.gid}
           url={`/groups/${group.id}`}
           title={`Name: ${group.name}`}
           subtitle={`Description: ${group.description}`}

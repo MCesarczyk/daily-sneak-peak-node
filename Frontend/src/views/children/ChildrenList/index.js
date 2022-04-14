@@ -29,7 +29,7 @@ const ChildrenList = () => {
     >
       {childrenList.length > 0 && childrenList.map(child => (
         <ListViewItem
-          id={child.id}
+          key={child.id}
           url={`/children/${child.id}`}
           title={`Child: ${child.name + " " + child.surname}`}
           subtitle={`Group: ${child.group}`}

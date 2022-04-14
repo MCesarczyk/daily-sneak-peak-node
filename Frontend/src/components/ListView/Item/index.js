@@ -5,8 +5,8 @@ import ListItemAvatar from '@mui/material/ListItemAvatar';
 import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
 
-const ListViewItem = ({ id, url, title, subtitle }) => (
-  <ListItem key={id}>
+const ListViewItem = ({ url, title, subtitle }) => (
+  <ListItem>
     <ListItemAvatar>
       <Avatar>
         <ImageIcon />
