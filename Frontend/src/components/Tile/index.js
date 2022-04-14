@@ -1,7 +1,7 @@
 import React from "react";
 import { Skeleton } from "@mui/material";
 import TileFooter from "./Footer";
-import NotFound from "../../../../components/NotFound";
+import NotFound from "../NotFound";
 import { StyledTile } from "./styled";
 import Avatar from "./Avatar";
 import Heading from "./Heading";

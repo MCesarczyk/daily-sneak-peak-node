@@ -5,7 +5,7 @@ import { Provider } from "react-redux";
 import store from "../../../store";
 import { ThemeProvider } from "styled-components";
 import { lightMode } from "../../../assets/theme";
-import Tile from "./Tile";
+import Tile from "../../../components/Tile";
 
 const setup = (child) => render(
   <Provider store={store}>

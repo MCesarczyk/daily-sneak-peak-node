@@ -1,8 +1,8 @@
 import React from "react";
 import { Divider } from "@mui/material";
 import { ButtonsWrapper, StyledFooter } from "./styled";
-import DialogPopup from "../../../../dialog/DialogPopup";
-import Confirmation from "../../../../../components/Confirmation";
+import DialogPopup from "../../../views/dialog/DialogPopup";
+import Confirmation from "../../Confirmation";
 
 const TileFooter = ({ data }) => (
   <StyledFooter>

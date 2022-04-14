@@ -1,4 +1,4 @@
-import { useFetchData } from "../../../../../assets/utils/useFetchData";
+import { useFetchData } from "../../../assets/utils/useFetchData";
 import { ImageOuterWrapper, ImageWrapper, StyledImage } from "./styled";
 import { NoPicture } from "./NoPicture";
 

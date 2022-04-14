@@ -9,7 +9,7 @@ import {
   selectChildData,
   selectChildGotoList
 } from "../childSlice";
-import Tile from "./Tile";
+import Tile from "../../../components/Tile";
 
 const ChildData = () => {
   const { id } = useParams();

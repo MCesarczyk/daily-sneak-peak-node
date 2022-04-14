@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider } from '@mui/material';
-import { Label } from '../../../../../components/Label';
-import { Space } from '../../../../../components/Space';
+import { Label } from '../../Label';
+import { Space } from '../../Space';
 import { SubTitle, Title, TitleFieldset } from './styled';
 
 const Heading = ({ data }) => (
