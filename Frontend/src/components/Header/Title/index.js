@@ -5,9 +5,9 @@ export const Title = styled.h1`
   font-size: 1.5rem;
   line-height: 1.3;
   font-weight: 700;
-  margin: 1rem 0;
+  margin: 1rem;
 
   &:hover {
-    color: ${({ theme }) => theme.color.muted};
+    background-color: rgba(0, 0, 0, 0.04);
   }
 `
