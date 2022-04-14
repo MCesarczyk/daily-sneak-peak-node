@@ -4,7 +4,7 @@ import { lightMode } from "../../../assets/theme"
 import "jest-styled-components";
 import { Title } from ".";
 
-test("Title should change color on hover", () => {
+test("Title should change background color on hover", () => {
   const titleItem = renderer.create(
     <ThemeProvider theme={lightMode}>
       <Title />
@@ -13,7 +13,7 @@ test("Title should change color on hover", () => {
 
   const title = titleItem.toJSON();
   
-  expect(title).toHaveStyleRule('color', '#F5F5F5', {
+  expect(title).toHaveStyleRule('background-color', 'rgba(0,0,0,0.04)', {
     modifier: ':hover'
   });
 });

@@ -8,6 +8,7 @@ const Paths = () => (
         <Route path='/children' element={<ChildrenList />} />
         <Route path='/children/:id' element={<ChildData />} />
         <Route path='/groups' element={<GroupsList />} />
+        <Route path='/users' element={<h3 style={{textAlign: 'center'}}>PAGE UNDER CONSTRUCTION</h3>} />
         <Route path='*' element={<Navigate replace to='/children' />} />
     </Routes>
 );
