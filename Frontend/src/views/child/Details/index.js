@@ -12,7 +12,7 @@ import {
 } from "../childSlice";
 import Tile from "../../../components/Tile";
 
-const ChildData = () => {
+const ChildDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -60,4 +60,4 @@ const ChildData = () => {
   );
 };
 
-export default ChildData;
+export default ChildDetails;

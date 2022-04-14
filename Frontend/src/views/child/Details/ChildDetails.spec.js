@@ -20,7 +20,9 @@ const setup = (state, child) => render(
         avatarUrl={child?.avatarUrl}
         headingData={{
           title: `${child?.name} ${child?.surname}`,
-          subtitle: child?.group
+          subtitle: child?.group,
+          titleLabel: "name: ",
+          subtitleLabel: "group: "
         }}
         footerData={{
           buttonLabel: "Delete child",
