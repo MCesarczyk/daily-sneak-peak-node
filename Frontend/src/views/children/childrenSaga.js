@@ -10,8 +10,8 @@ function* fetchChildrenListHandler() {
     yield put(setChildrenState("loading"));
     const response = yield call(getDataFromApi, url);
     const data = yield response;
-    yield delay(DEMO_DELAY);
     yield put(setChildrenList(data));
+    yield delay(DEMO_DELAY);
     yield put(setChildrenState("success"));
   } catch (error) {
     yield call(console.error, error.message);

@@ -1,26 +1,31 @@
-import { call, put, select, takeLatest } from "redux-saga/effects";
+import { call, delay, put, select, takeLatest } from "redux-saga/effects";
 import { reloadChildrenList } from "../children/childrenSlice";
 import { setDialogClosed } from "../dialog/dialogSlice";
 import {
   selectChildData, fetchChildData, setChildData, reloadChildData,
   selectChildId, postChildData, updateChildData, deleteChildData,
   returnToChildrenList,
+  setChildState,
 } from "./childSlice";
 import {
   getDataFromApi, removeDataFromApi, sendDataToApi
 } from "../../assets/utils/handleApiCalls";
 import { CHILDREN_URL, AVATAR_URL } from "../../assets/links";
+import { DEMO_DELAY } from "../../assets/data";
 
 function* fetchChildDataHandler() {
   try {
     const id = yield select(selectChildId);
     const url = `${CHILDREN_URL}/${id}`;
+    yield put(setChildState("loading"));
     const response = yield call(getDataFromApi, url);
     const data = yield response;
     yield put(setChildData(data[0]));
     const avatarId = data[0].avatar;
     const avatarUrl = avatarId ? `${AVATAR_URL}/${data[0].avatar}` : '';
     yield put(setChildData({ ...data[0], avatarUrl: avatarUrl }));
+    yield delay(DEMO_DELAY);
+    yield put(setChildState("success"));
   } catch (error) {
     yield call(console.error, error.message);
   }

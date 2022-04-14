@@ -7,7 +7,8 @@ import {
   deleteChildData,
   fetchChildData,
   selectChildData,
-  selectChildGotoList
+  selectChildGotoList,
+  selectChildState
 } from "../childSlice";
 import Tile from "../../../components/Tile";
 
@@ -16,6 +17,7 @@ const ChildData = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const state = useSelector(selectChildState);
   const child = useSelector(selectChildData);
   const gotoList = useSelector(selectChildGotoList);
 
@@ -35,7 +37,7 @@ const ChildData = () => {
 
   return (
     <Tile
-      state="success"
+      state={state}
       componentsState={{
         notFound: !child,
         errorMessage: "Sorry... no child data found.",

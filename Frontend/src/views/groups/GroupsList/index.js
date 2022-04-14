@@ -30,7 +30,7 @@ const GroupsList = () => {
       {groupsList.length > 0 && groupsList.map(group => (
         <ListViewItem
           key={group.gid}
-          url={`/groups/${group.id}`}
+          url={`/groups/${group.gid}`}
           title={`Name: ${group.name}`}
           subtitle={`Description: ${group.description}`}
         />

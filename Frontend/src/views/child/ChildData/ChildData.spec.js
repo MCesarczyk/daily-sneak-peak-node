@@ -51,6 +51,7 @@ test("Child reducer should return the initial state", () => {
     {
       id: 0,
       data: {},
+      state: 'idle',
       gotoList: false
     }
   )
