@@ -7,11 +7,11 @@ import { SubTitle, Title, TitleFieldset } from './styled';
 const Heading = ({ data }) => (
   <TitleFieldset>
     <Space>
-      <Label size={0.75}>name: </Label>
+      <Label size={0.75}>{data?.titleLabel}</Label>
       <Title>{data?.title}</Title>
     </Space>
     <Space>
-      <Label size={0.75}>group: </Label>
+      <Label size={0.75}>{data?.subtitleLabel}</Label>
       <SubTitle role="subheading">{data?.subtitle}</SubTitle>
     </Space>
     <Divider />

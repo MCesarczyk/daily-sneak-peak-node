@@ -46,7 +46,9 @@ const GroupDetails = () => {
       avatarUrl={group?.avatarUrl}
       headingData={{
         title: group?.name,
-        subtitle: group?.description
+        subtitle: group?.description,
+        titleLabel: "group name: ",
+        subtitleLabel: "description: "
       }}
       footerData={{
         buttonLabel: "Delete group",
