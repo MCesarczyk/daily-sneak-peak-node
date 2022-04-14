@@ -35,7 +35,8 @@ const ChildData = () => {
 
   return (
     <Tile
-      state={{
+      state="success"
+      componentsState={{
         notFound: !child,
         errorMessage: "Sorry... no child data found.",
         loading: child && Object.entries(child).length === 0
