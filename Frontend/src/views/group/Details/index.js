@@ -11,6 +11,7 @@ import {
   selectGroupState
 } from "../groupSlice";
 import Tile from "../../../components/Tile";
+import { NoPicture } from "../../../components/Tile/Avatar/NoPicture";
 
 const GroupDetails = () => {
   const { id } = useParams();
@@ -43,7 +44,10 @@ const GroupDetails = () => {
         errorMessage: "Sorry... no group data found.",
         loading: group && Object.entries(group).length === 0
       }}
-      avatarUrl={group?.avatarUrl}
+      avatarData={{
+        url: group?.avatarUrl,
+        placeholder: <NoPicture />
+      }}
       headingData={{
         title: group?.name,
         subtitle: group?.description,

@@ -11,6 +11,7 @@ import {
   selectChildState
 } from "../childSlice";
 import Tile from "../../../components/Tile";
+import { NoPhoto } from "../../../components/Tile/Avatar/NoPhoto";
 
 const ChildDetails = () => {
   const { id } = useParams();
@@ -43,7 +44,10 @@ const ChildDetails = () => {
         errorMessage: "Sorry... no child data found.",
         loading: child && Object.entries(child).length === 0
       }}
-      avatarUrl={child?.avatarUrl}
+      avatarData={{
+        url: child?.avatarUrl,
+        placeholder: <NoPhoto />
+      }}
       headingData={{
         title: `${child?.name} ${child?.surname}`,
         subtitle: child?.group,

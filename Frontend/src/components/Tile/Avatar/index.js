@@ -1,14 +1,14 @@
 import { useFetchData } from "../../../assets/utils/useFetchData";
 import { ImageOuterWrapper, ImageWrapper, StyledImage } from "./styled";
-import { NoPicture } from "./NoPicture";
 
-const Avatar = ({ url }) => {
+const Avatar = ({ data }) => {
+  const url = data?.url;
   const picture = useFetchData(url);
 
   return (
     <ImageOuterWrapper>
       <ImageWrapper>
-        {(url === '' || url === undefined) ? <NoPicture /> : <StyledImage src={picture} />}
+        {(url === '' || url === undefined) ? data?.placeholder : <StyledImage src={picture} />}
       </ImageWrapper>
     </ImageOuterWrapper>
   )

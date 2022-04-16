@@ -14,11 +14,11 @@ export const ImageWrapper = styled.div`
   display: block;
   overflow: hidden;
   aspect-ratio: 1;
+  border-radius: 1rem;
 `;
 
 export const StyledImage = styled.img`
   width: 100%;
   display: block;
-  border-radius: 1rem;
   aspect-ratio: 1;
 `;

@@ -7,7 +7,7 @@ import Avatar from "./Avatar";
 import Heading from "./Heading";
 import Loader from "../Loader";
 
-const Tile = ({ state, componentsState, avatarUrl, headingData, footerData }) => (
+const Tile = ({ state, componentsState, avatarData, headingData, footerData }) => (
   <Loader
     state={state}
     message="Loading"
@@ -15,7 +15,7 @@ const Tile = ({ state, componentsState, avatarUrl, headingData, footerData }) =>
     {componentsState.notFound
       ? <NotFound message={componentsState.errorMessage} />
       : <StyledTile data-testid="details-tile">
-        <Avatar url={avatarUrl} />
+        <Avatar data={avatarData} />
         {componentsState.loading ?
           <>
             <Skeleton height={42} />
