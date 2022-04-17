@@ -10,6 +10,7 @@ import {
   selectChildGotoList,
   selectChildState
 } from "../childSlice";
+import { selectGroupsList } from "../../groups/groupsSlice";
 import Tile from "../../../components/Tile";
 import { NoPhoto } from "../../../components/Tile/Avatar/NoPhoto";
 
@@ -21,6 +22,8 @@ const ChildDetails = () => {
   const state = useSelector(selectChildState);
   const child = useSelector(selectChildData);
   const gotoList = useSelector(selectChildGotoList);
+  const groups = useSelector(selectGroupsList);
+  const group = groups.filter(({ gid }) => gid === parseInt(child?.group))[0]?.name;
 
   useEffect(() => {
     if (gotoList === true) {
@@ -50,7 +53,7 @@ const ChildDetails = () => {
       }}
       headingData={{
         title: `${child?.name} ${child?.surname}`,
-        subtitle: child?.group,
+        subtitle: group,
         titleLabel: "name: ",
         subtitleLabel: "group: "
       }}
