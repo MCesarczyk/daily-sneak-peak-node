@@ -27,6 +27,7 @@ body {
   transition: color ease-in 1s;
   background-color: ${({ theme }) => theme.color.background};
   color: ${({ theme }) => theme.color.text};
+  overflow-y: scroll;
 }
 
 html, body {
@@ -79,9 +80,4 @@ ul, ol {
 a {
   text-decoration: none;
   color: unset;
-
-  &:hover {
-    filter: brightness(0.8);
-    background-color: unset;
-  }
 }`

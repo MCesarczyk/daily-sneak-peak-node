@@ -4,7 +4,7 @@ export const SpinnerWrapper = styled.div`
   color: #0366D6;
   height: 100%;
   width: 100%;
-  padding: calc(50% - 12rem) 0;
+  padding: 8rem 0;
 `
 
 export const Spinner = styled.div`

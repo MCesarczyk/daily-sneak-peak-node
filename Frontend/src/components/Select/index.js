@@ -14,7 +14,7 @@ const Select = ({ id, label, value, onChange, options }) => (
     sx={{ width: "14rem", px: 1 }}
   >
     {options.map(option => (
-      <MenuItem key={option.id} value={option.label}>
+      <MenuItem key={option.id} value={option.id}>
         {option.label}
       </MenuItem>
     ))}

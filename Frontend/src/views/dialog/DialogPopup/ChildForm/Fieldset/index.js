@@ -1,12 +1,11 @@
 import { Typography } from "@mui/material";
 import AvatarUploader from "../../../../../features/AvatarUploader";
-import { groups } from "../../../../../assets/fixtures";
 import DialogPopupFooter from "../../Footer";
 import Input from "../../../../../components/Input";
 import Select from "../../../../../components/Select";
-import { Fieldset, List, ListItem } from "./styled";
+import { Fieldset, List, ListItem } from "../../styled";
 
-const ChildFormFieldset = ({ title, child, setChild, onFinish }) => {
+const ChildFormFieldset = ({ title, child, groups, setChild, onFinish }) => {
   const onFirstChange = ({ target }) => {
     setChild({
       ...child,

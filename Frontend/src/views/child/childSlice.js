@@ -3,7 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   id: 0,
   data: {},
-  gotoList: false,
+  state: 'idle',
+  gotoList: false
 };
 
 const childSlice = createSlice({
@@ -29,6 +30,9 @@ const childSlice = createSlice({
       state.id = id;
     },
     clearChildData: () => initialState,
+    setChildState: (state, { payload: newState }) => {
+      state.state = newState;
+    },
     returnToChildrenList: state => { state.gotoList = true },
   },
 });
@@ -41,6 +45,7 @@ export const {
   reloadChildData,
   clearChildData,
   deleteChildData,
+  setChildState,
   returnToChildrenList,
 } = childSlice.actions;
 
@@ -49,5 +54,6 @@ const selectChild = state => state.child;
 export const selectChildId = state => selectChild(state).id;
 export const selectChildData = state => selectChild(state).data;
 export const selectChildGotoList = state => selectChild(state).gotoList;
+export const selectChildState = state => selectChild(state).state;
 
 export default childSlice.reducer;

@@ -4,5 +4,7 @@ export const TITLE_URL = `${apiUrl}/title`;
 
 export const CHILDREN_URL = `${apiUrl}/children`;
 
+export const GROUPS_URL = `${apiUrl}/groups`;
+
 export const AVATAR_URL = `${apiUrl}/images/getUrl`;
 export const AVATAR_UPLOAD_URL = `${apiUrl}/images/upload`;
