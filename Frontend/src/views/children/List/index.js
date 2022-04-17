@@ -21,7 +21,7 @@ const ChildrenList = () => {
     return (() => {
       dispatch(clearChildrenList());
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <ListView

@@ -26,7 +26,7 @@ const GroupDetails = () => {
     if (gotoList === true) {
       navigate('/groups');
     }
-  }, [gotoList])
+  }, [gotoList, navigate])
 
   useEffect(() => {
     dispatch(fetchGroupData(id));
@@ -34,7 +34,7 @@ const GroupDetails = () => {
     return (() => {
       dispatch(clearGroupData());
     });
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <Tile

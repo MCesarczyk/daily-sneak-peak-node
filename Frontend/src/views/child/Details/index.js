@@ -30,7 +30,7 @@ const ChildDetails = () => {
     if (gotoList === true) {
       navigate('/children');
     }
-  }, [gotoList])
+  }, [gotoList, navigate])
 
   useEffect(() => {
     dispatch(fetchChildData(id));
@@ -38,7 +38,7 @@ const ChildDetails = () => {
     return (() => {
       dispatch(clearChildData());
     });
-  }, []);
+  }, [dispatch, id]);
 
   return (
     <Tile

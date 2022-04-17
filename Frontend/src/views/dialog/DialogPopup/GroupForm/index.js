@@ -27,7 +27,7 @@ const GroupForm = () => {
     if (type === 'editGroup') {
       fetchApiGroup();
     }
-  }, [type, open, apiData]);
+  }, [type, open, apiData, fetchApiGroup]);
 
   const onFinish = () => {
     type === 'addGroup' && dispatch(postGroupData(group));

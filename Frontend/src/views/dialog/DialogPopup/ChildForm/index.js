@@ -30,7 +30,7 @@ const ChildForm = () => {
     if (type === 'editChild') {
       fetchApiChild();
     }
-  }, [type, open, apiData]);
+  }, [type, open, apiData, fetchApiChild]);
 
   const onFinish = () => {
     type === 'addChild' && dispatch(postChildData(child));

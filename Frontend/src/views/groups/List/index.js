@@ -18,7 +18,7 @@ const GroupsList = () => {
     return (() => {
       dispatch(clearGroupsList());
     });
-  }, []);
+  }, [dispatch]);
 
   return (
     <ListView
