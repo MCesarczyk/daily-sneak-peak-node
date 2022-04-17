@@ -1,4 +1,4 @@
-const apiUrl = process.env.NODE_ENV === 'production' ? 'https://teachers-assistant.cesarczyk.dev/api' : '';
+const apiUrl = process.env.NODE_ENV === 'production' ? 'https://teachers-assistant.cesarczyk.dev/api' : '/api';
 
 export const TITLE_URL = `${apiUrl}/title`;
 

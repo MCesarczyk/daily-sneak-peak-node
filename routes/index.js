@@ -13,14 +13,14 @@ router.use((req, res, next) => {
   next();
 });
 
-router.get('/title', (req, res) => {
+router.get('/api/title', (req, res) => {
   res.json("Teacher's assistant")
 });
 
-router.use('/children', require('./children'));
+router.use('/api/children', require('./children'));
 
-router.use('/groups', require('./groups'));
+router.use('/api/groups', require('./groups'));
 
-router.use('/images', require('./images'));
+router.use('/api/images', require('./images'));
 
 module.exports = router;
