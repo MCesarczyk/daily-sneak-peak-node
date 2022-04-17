@@ -13,6 +13,7 @@ import {
 import { selectGroupsList } from "../../groups/groupsSlice";
 import Tile from "../../../components/Tile";
 import { NoPhoto } from "../../../components/Tile/Avatar/NoPhoto";
+import { groupLabelFindingHelper } from "../../../assets/utils/groupLabelFindingHelper";
 
 const ChildDetails = () => {
   const { id } = useParams();
@@ -23,7 +24,7 @@ const ChildDetails = () => {
   const child = useSelector(selectChildData);
   const gotoList = useSelector(selectChildGotoList);
   const groups = useSelector(selectGroupsList);
-  const group = groups.filter(({ gid }) => gid === parseInt(child?.group))[0]?.name;
+  const group = groupLabelFindingHelper(groups, child?.group);
 
   useEffect(() => {
     if (gotoList === true) {

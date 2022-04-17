@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectChildrenList, selectChildrenState } from "../childrenSlice";
-import { useDispatch } from 'react-redux';
 import { clearChildrenList, fetchChildrenList } from '../childrenSlice';
+import { selectGroupsList } from '../../groups/groupsSlice';
+import { groupLabelFindingHelper } from '../../../assets/utils/groupLabelFindingHelper';
 import ListView from '../../../components/ListView';
 import ListViewItem from '../../../components/ListView/Item';
 import DialogPopup from '../../dialog/DialogPopup';
@@ -11,6 +12,8 @@ const ChildrenList = () => {
   const childrenList = useSelector(selectChildrenList);
   const state = useSelector(selectChildrenState);
   const dispatch = useDispatch();
+  const groups = useSelector(selectGroupsList);
+  const findLabel = groupId => groupLabelFindingHelper(groups, groupId);
 
   useEffect(() => {
     dispatch(fetchChildrenList());
@@ -32,7 +35,7 @@ const ChildrenList = () => {
           key={child.id}
           url={`/children/${child.id}`}
           title={`Child: ${child.name + " " + child.surname}`}
-          subtitle={`Group: ${child.group}`}
+          subtitle={`Group: ${findLabel(child.group)}`}
         />
       ))}
     </ListView>
