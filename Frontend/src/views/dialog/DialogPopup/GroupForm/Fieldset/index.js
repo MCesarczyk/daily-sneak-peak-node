@@ -19,13 +19,6 @@ const GroupFormFieldset = ({ title, group, setGroup, onFinish }) => {
     });
   };
 
-  const onNotesChange = ({ target }) => {
-    setGroup({
-      ...group,
-      notes: target.value,
-    });
-  };
-
   const onAvatarChange = (payload) => {
     setGroup({
       ...group,
@@ -59,14 +52,6 @@ const GroupFormFieldset = ({ title, group, setGroup, onFinish }) => {
               label="Description"
               value={group.description || ''}
               onChange={onDescriptionChange}
-            />
-          </ListItem>
-          <ListItem>
-            <Input
-              id="notes"
-              label="Notes"
-              value={group.notes || ''}
-              onChange={onNotesChange}
             />
           </ListItem>
         </List >
