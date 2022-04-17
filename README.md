@@ -66,6 +66,21 @@ npm run build
    You may also see any lint errors in the console.
 
 ___
+## Updating app:
+1. Pull changes from repository.
+2. Go to `/sql/migrate` directory.
+3. Roll migrations.
+4. Restart backend:
+   ```
+   `pm2 restart server`
+   ```
+7. Go to `/Frontend` directory.
+8. Build production image:
+   ```
+   `yarn build`
+   ```
+9. Go to: https://teachers-assistant.cesarczyk.dev
+___
 ## Frontend testing:
 
 1. Launch the test runner, Jest, in the interactive watch mode.
