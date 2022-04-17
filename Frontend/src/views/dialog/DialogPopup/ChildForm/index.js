@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { postChildData, selectChildData, updateChildData } from "../../../child/childSlice";
+import { selectGroupsList } from "../../../groups/groupsSlice";
 import { selectDialogOpen, selectDialogType } from "../../dialogSlice";
 import ChildFormFieldset from "./Fieldset";
 
@@ -9,6 +10,8 @@ const ChildForm = () => {
   const apiData = useSelector(selectChildData);
   const type = useSelector(selectDialogType);
   const open = useSelector(selectDialogOpen);
+  const groups = useSelector(selectGroupsList);
+  const groupNames = groups.map(({ gid, name }) => ({id: gid, label: name}));
 
   const [child, setChild] = useState({
     name: '',
@@ -38,6 +41,7 @@ const ChildForm = () => {
     <ChildFormFieldset
       title="Personal data"
       child={child}
+      groups={groupNames}
       setChild={setChild}
       onFinish={onFinish}
     />

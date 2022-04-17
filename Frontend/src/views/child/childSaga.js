@@ -13,6 +13,7 @@ import {
 import { CHILDREN_URL, AVATAR_URL } from "../../assets/links";
 import { DEMO_DELAY } from "../../assets/data";
 import { fetchApiData } from "../../assets/utils/fetchApiData";
+import { fetchGroupsList } from "../groups/groupsSlice";
 
 function* fetchChildDataHandler() {
   try {
@@ -30,6 +31,7 @@ function* fetchChildDataHandler() {
     } else {
       yield put(setChildData({ ...data[0], avatarUrl: '' }));
     }
+    yield put(fetchGroupsList());
     yield delay(DEMO_DELAY);
     yield put(setChildState("success"));
   } catch (error) {

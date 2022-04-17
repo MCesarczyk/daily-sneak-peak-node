@@ -1,11 +1,3 @@
-export const groups = [
-  { id: 1, label: "Kangaroos" },
-  { id: 2, label: "Froggies" },
-  { id: 3, label: "Crocodiles" },
-  { id: 4, label: "Slothies" },
-  { id: 5, label: "Monkeys" }
-];
-
 export const pages = [
   {
     id: 1,
