@@ -15,6 +15,18 @@ export const ImageWrapper = styled.div`
   overflow: hidden;
   aspect-ratio: 1;
   border-radius: 1rem;
+  animation: fade-in 1s ease-in-out;
+  animation-fill-mode: backwards;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 `;
 
 export const StyledImage = styled.img`

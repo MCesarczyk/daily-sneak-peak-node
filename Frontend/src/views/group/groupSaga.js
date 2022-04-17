@@ -12,6 +12,7 @@ import {
 } from "../../assets/utils/handleApiCalls";
 import { GROUPS_URL, AVATAR_URL } from "../../assets/links";
 import { DEMO_DELAY } from "../../assets/data";
+import { fetchApiData } from "../../assets/utils/fetchApiData";
 
 function* fetchGroupDataHandler() {
   try {
@@ -22,8 +23,13 @@ function* fetchGroupDataHandler() {
     const data = yield response;
     yield put(setGroupData(data[0]));
     const avatarId = data[0].avatar;
-    const avatarUrl = avatarId ? `${AVATAR_URL}/${data[0].avatar}` : '';
-    yield put(setGroupData({ ...data[0], avatarUrl: avatarUrl }));
+    if (avatarId) {
+      const avatarUrl = `${AVATAR_URL}/${data[0].avatar}`;
+      const avatarSecureUrl = yield fetchApiData(avatarUrl) || '';
+      yield put(setGroupData({ ...data[0], avatarUrl: avatarSecureUrl }));
+    } else {
+      yield put(setGroupData({ ...data[0], avatarUrl: '' }));
+    }
     yield delay(DEMO_DELAY);
     yield put(setGroupState("success"));
   } catch (error) {
