@@ -59,6 +59,7 @@ function* updateGroupDataHandler() {
   const url = `${GROUPS_URL}/${id}`;
   const method = "put";
   yield call(dispatchGroupDataHandler, url, method);
+  yield put(reloadGroupData());
 };
 
 function* deleteGroupDataHandler() {

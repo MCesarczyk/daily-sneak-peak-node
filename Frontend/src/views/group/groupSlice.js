@@ -23,9 +23,7 @@ const groupSlice = createSlice({
     updateGroupData: (state, { payload: group }) => {
       state.data = group;
     },
-    reloadGroupData: (state, { payload: id }) => {
-      state.id = id;
-    },
+    reloadGroupData: () => {},
     deleteGroupData: (state, { payload: id }) => {
       state.id = id;
     },
