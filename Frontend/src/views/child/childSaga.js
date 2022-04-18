@@ -61,6 +61,7 @@ function* updateChildDataHandler() {
   const url = `${CHILDREN_URL}/${id}`;
   const method = "put";
   yield call(dispatchChildDataHandler, url, method);
+  yield put(reloadChildData());
 };
 
 function* deleteChildDataHandler() {

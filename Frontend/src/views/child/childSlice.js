@@ -23,9 +23,7 @@ const childSlice = createSlice({
     updateChildData: (state, { payload: child }) => {
       state.data = child;
     },
-    reloadChildData: (state, { payload: id }) => {
-      state.id = id;
-    },
+    reloadChildData: () => {},
     deleteChildData: (state, { payload: id }) => {
       state.id = id;
     },
