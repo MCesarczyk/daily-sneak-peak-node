@@ -18,14 +18,15 @@ const GroupsList = () => {
     return (() => {
       dispatch(clearGroupsList());
     });
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <ListView
       state={state}
-    extraContent={
-      <DialogPopup form='addGroup' />
-    }
+      extraContent={
+        <DialogPopup form='addGroup' />
+      }
     >
       {groupsList.length > 0 && groupsList.map(group => (
         <ListViewItem

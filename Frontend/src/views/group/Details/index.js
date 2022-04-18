@@ -26,7 +26,8 @@ const GroupDetails = () => {
     if (gotoList === true) {
       navigate('/groups');
     }
-  }, [gotoList, navigate])
+    // eslint-disable-next-line
+  }, [gotoList])
 
   useEffect(() => {
     dispatch(fetchGroupData(id));
@@ -34,7 +35,8 @@ const GroupDetails = () => {
     return (() => {
       dispatch(clearGroupData());
     });
-  }, [dispatch, id]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Tile

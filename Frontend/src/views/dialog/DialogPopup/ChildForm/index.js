@@ -11,7 +11,7 @@ const ChildForm = () => {
   const type = useSelector(selectDialogType);
   const open = useSelector(selectDialogOpen);
   const groups = useSelector(selectGroupsList);
-  const groupNames = groups.map(({ gid, name }) => ({id: gid, label: name}));
+  const groupNames = groups.map(({ gid, name }) => ({ id: gid, label: name }));
 
   const [child, setChild] = useState({
     name: '',
@@ -30,7 +30,8 @@ const ChildForm = () => {
     if (type === 'editChild') {
       fetchApiChild();
     }
-  }, [type, open, apiData, fetchApiChild]);
+    // eslint-disable-next-line
+  }, [type, open, apiData]);
 
   const onFinish = () => {
     type === 'addChild' && dispatch(postChildData(child));

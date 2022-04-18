@@ -27,7 +27,8 @@ const GroupForm = () => {
     if (type === 'editGroup') {
       fetchApiGroup();
     }
-  }, [type, open, apiData, fetchApiGroup]);
+    // eslint-disable-next-line
+  }, [type, open, apiData]);
 
   const onFinish = () => {
     type === 'addGroup' && dispatch(postGroupData(group));

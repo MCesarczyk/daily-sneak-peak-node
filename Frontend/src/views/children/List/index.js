@@ -21,7 +21,8 @@ const ChildrenList = () => {
     return (() => {
       dispatch(clearChildrenList());
     });
-  }, [dispatch]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <ListView

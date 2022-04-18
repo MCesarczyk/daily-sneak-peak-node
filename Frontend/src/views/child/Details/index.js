@@ -30,7 +30,8 @@ const ChildDetails = () => {
     if (gotoList === true) {
       navigate('/children');
     }
-  }, [gotoList, navigate])
+    // eslint-disable-next-line
+  }, [gotoList])
 
   useEffect(() => {
     dispatch(fetchChildData(id));
@@ -38,7 +39,8 @@ const ChildDetails = () => {
     return (() => {
       dispatch(clearChildData());
     });
-  }, [dispatch, id]);
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Tile
