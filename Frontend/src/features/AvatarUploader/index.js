@@ -13,32 +13,38 @@ class AvatarUploader extends React.Component {
   state = {
     image: '',
     fileName: '',
+    position: { x: 0.5, y: 0.5 },
+    uploaded: false,
     scale: 1.5,
     rotate: 0
   };
 
   avatarFileName = `avatars/${Date.now().toString()}-${Math.random().toString().substring(2)}`;
 
-  onImageSelect = (e) => {
+  onImageSelect = e => {
     this.setState({
       image: e.target.files[0],
       fileName: this.avatarFileName
     });
   };
 
-  onImageDrop = (dropped) => {
+  onImageDrop = dropped => {
     this.setState({
       image: dropped[0],
       fileName: this.avatarFileName
     })
   };
 
-  onScaleChange = (e) => {
-    this.setState({ scale: e.target.value });
+  onScaleChange = e => {
+    this.setState({ scale: e.target.value, uploaded: false });
   };
 
-  onRotationChange = (e) => {
-    this.setState({ rotate: e.target.value });
+  onRotationChange = e => {
+    this.setState({ rotate: e.target.value, uploaded: false });
+  };
+
+  onPositionChange = position => {
+    this.setState({ position, uploaded: false });
   };
 
   onImageSave = async () => {
@@ -60,12 +66,13 @@ class AvatarUploader extends React.Component {
 
       if (response?.statusText === "OK") {
         this.props.onAvatarChange(this.state.fileName);
+        this.setState({ uploaded: true });
       }
     }
   };
 
-  setEditorRef = (editor) => (this.editor = editor);
-  setInputRef = (input) => (this.input = input);
+  setEditorRef = editor => this.editor = editor;
+  setInputRef = input => this.input = input;
 
   render() {
     return (
@@ -82,8 +89,10 @@ class AvatarUploader extends React.Component {
                 <AvatarEditor
                   ref={this.setEditorRef}
                   image={this.state.image}
+                  position={this.state.position}
                   scale={parseFloat(this.state.scale)}
                   rotate={parseFloat(this.state.rotate)}
+                  onPositionChange={this.onPositionChange}
                   width={200}
                   height={200}
                   border={40}
@@ -94,20 +103,20 @@ class AvatarUploader extends React.Component {
           </Dropzone>
           <SliderWrapper>
             <div>
-              <ZoomOutIcon/>
+              <ZoomOutIcon />
               <Slider
                 type="range"
                 name="zoom"
-                min={0.5}
+                min={1.0}
                 max={5.0}
                 defaultValue={1.5}
                 step={0.01}
                 onChange={this.onScaleChange}
               />
-              <ZoomInIcon/>
+              <ZoomInIcon />
             </div>
             <div>
-              <RotateLeftIcon/>
+              <RotateLeftIcon />
               <Slider
                 type="range"
                 name="rotate"
@@ -117,7 +126,7 @@ class AvatarUploader extends React.Component {
                 step={0.01}
                 onChange={this.onRotationChange}
               />
-              <RotateRightIcon/>
+              <RotateRightIcon />
             </div>
           </SliderWrapper>
           <ButtonsWrapper>
@@ -128,7 +137,12 @@ class AvatarUploader extends React.Component {
               onChange={this.onImageSelect}
             />
             <Button onClick={() => this.input.click()}>SELECT FILE</Button>
-            <Button onClick={this.onImageSave}>UPLOAD</Button>
+            <Button
+              disabled={this.state.uploaded}
+              onClick={this.onImageSave}
+            >
+              {this.state.uploaded ? 'UPLOADED' : 'UPLOAD'}
+            </Button>
           </ButtonsWrapper>
         </div>
       </UploaderWrapper>
